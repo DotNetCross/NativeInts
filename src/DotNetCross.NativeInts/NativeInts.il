@@ -49,16 +49,10 @@
         ret
     }
 
-    .method public hidebysig specialname static valuetype nint op_Explicit (int32 'value') cil managed 
-    {
-        ldarg.0
-        newobj instance void nint::.ctor(int32)
-        ret
-    }
     .method public hidebysig specialname static valuetype nint op_Explicit (int64 'value') cil managed 
     {
         ldarg.0
-        conv.ovf.i // Should we throw on overflow, if native int is 32-bit?
+        conv.i // Should we throw on overflow, if native int is 32-bit?
         newobj instance void nint::.ctor(native int)
         ret
     }
@@ -73,18 +67,14 @@
     {
         ldarga.s 'value'
         ldfld native int nint::m_value
+        conv.i8
         ret
     }
     .method public hidebysig specialname static int32 op_Explicit (valuetype nint 'value') cil managed 
     {
         ldarga.s 'value'
         ldfld native int nint::m_value
-        ret
-    }
-    .method public hidebysig specialname static int64 op_Explicit (valuetype nint 'value') cil managed 
-    {
-        ldarga.s 'value'
-        ldfld native int nint::m_value
+        conv.i4 // Should we throw on overflow, if native int is 64-bit?
         ret
     }
 
