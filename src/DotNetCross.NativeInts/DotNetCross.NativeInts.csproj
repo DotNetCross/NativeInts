@@ -41,6 +41,10 @@
     <GetFrameworkPath>
       <Output TaskParameter="Path" PropertyName="FrameworkPath" />
     </GetFrameworkPath>
+    <!-- If no FrameworkPath default to .NET 4.0 path -->
+    <PropertyGroup Condition=" '$(FrameworkPath)' == '' ">
+      <FrameworkPath>C:\Windows\Microsoft.NET\Framework\v4.0.30319\</FrameworkPath>
+    </PropertyGroup>
     <PropertyGroup>
       <IlAsmCommand>"$(FrameworkPath)\Ilasm.exe" /NOLOGO /DLL /OUTPUT:"@(IntermediateAssembly)" </IlAsmCommand>
     </PropertyGroup>

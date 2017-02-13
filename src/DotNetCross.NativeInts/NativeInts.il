@@ -1,15 +1,15 @@
-﻿.assembly extern mscorlib {}
+﻿//.assembly extern mscorlib {}
 // Metadata version: v4.0.30319
-// .assembly extern System.Runtime
-// {
-//   .publickeytoken = (B0 3F 5F 7F 11 D5 0A 3A )                         // .?_....:
-//   .ver 4:0:0:0
-// }
+.assembly extern System.Runtime
+{
+  .publickeytoken = (B0 3F 5F 7F 11 D5 0A 3A )                         // .?_....:
+  .ver 4:0:0:0
+}
 .assembly 'DotNetCross.NativeInts' {}
 
 // Disassemble IntPtr in System for inspiration
 
-.class public sequential ansi sealed serializable beforefieldinit nint extends [mscorlib]System.ValueType
+.class public sequential ansi sealed serializable beforefieldinit nint extends [System.Runtime]System.ValueType
 // implements System.Runtime.Serialization.ISerializable
 {
     .field private native int m_value // .custom instance void System.Security.SecurityCriticalAttribute::.ctor() = ( 01 00 00 00 )    
