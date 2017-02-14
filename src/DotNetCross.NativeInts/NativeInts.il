@@ -5,28 +5,62 @@
   .publickeytoken = (B0 3F 5F 7F 11 D5 0A 3A )                         // .?_....:
   .ver 4:0:0:0
 }
-.assembly 'DotNetCross.NativeInts' {}
+.assembly DotNetCross.NativeInts
+{
+  .custom instance void [System.Runtime]System.Runtime.CompilerServices.CompilationRelaxationsAttribute::.ctor(int32) = ( 01 00 08 00 00 00 00 00 ) 
+  .custom instance void [System.Runtime]System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::.ctor() = ( 01 00 01 00 54 02 16 57 72 61 70 4E 6F 6E 45 78   // ....T..WrapNonEx
+                                                                                                                   63 65 70 74 69 6F 6E 54 68 72 6F 77 73 01 )       // ceptionThrows.
+
+  // --- The following custom attribute is added automatically, do not uncomment -------
+  //  .custom instance void [System.Runtime]System.Diagnostics.DebuggableAttribute::.ctor(valuetype [System.Runtime]System.Diagnostics.DebuggableAttribute/DebuggingModes) = ( 01 00 02 00 00 00 00 00 ) 
+
+  .custom instance void [System.Runtime]System.Reflection.AssemblyTitleAttribute::.ctor(string) = ( 01 00 19 44 6F 74 4E 65 74 43 72 6F 73 73 2E 4D   // ...DotNetCross.M
+                                                                                                    65 6D 6F 72 79 2E 55 6E 73 61 66 65 00 00 )       // emory.Unsafe..
+  .custom instance void [System.Runtime]System.Reflection.AssemblyDescriptionAttribute::.ctor(string) = ( 01 00 3E 55 6E 73 61 66 65 20 6D 65 74 68 6F 64   // ..>Unsafe method
+                                                                                                          73 20 66 6F 72 20 77 6F 72 6B 69 6E 67 20 77 69   // s for working wi
+                                                                                                          74 68 20 70 6F 69 6E 74 65 72 73 20 61 6E 64 20   // th pointers and 
+                                                                                                          75 6E 6D 61 6E 61 67 65 64 20 6D 65 6D 6F 72 79   // unmanaged memory
+                                                                                                          2E 00 00 )                                        // ...
+  .custom instance void [System.Runtime]System.Reflection.AssemblyCompanyAttribute::.ctor(string) = ( 01 00 0B 44 6F 74 4E 65 74 43 72 6F 73 73 00 00 ) // ...DotNetCross..
+  .custom instance void [System.Runtime]System.Reflection.AssemblyProductAttribute::.ctor(string) = ( 01 00 19 44 6F 74 4E 65 74 43 72 6F 73 73 2E 4D   // ...DotNetCross.M
+                                                                                                      65 6D 6F 72 79 2E 55 6E 73 61 66 65 00 00 )       // emory.Unsafe..
+  .custom instance void [System.Runtime]System.Reflection.AssemblyCopyrightAttribute::.ctor(string) = ( 01 00 1D 43 6F 70 79 72 69 67 68 74 20 C2 A9 20   // ...Copyright .. 
+                                                                                                        44 6F 74 4E 65 74 43 72 6F 73 73 20 32 30 31 36   // DotNetCross 2016
+                                                                                                        00 00 ) 
+  .custom instance void [System.Runtime]System.Reflection.AssemblyFileVersionAttribute::.ctor(string) = ( 01 00 07 30 2E 32 2E 32 2E 30 00 00 )             // ...0.2.3.0..
+
+  .hash algorithm 0x00008004
+  .ver 0:1:0:0
+}
+.module DotNetCross.NativeInts.dll
+// MVID: {B87A9616-91DD-4DC6-A4FC-3217D05362CD}
+.imagebase 0x10000000
+.file alignment 0x00000200
+.stackreserve 0x00100000
+.subsystem 0x0003       // WINDOWS_CUI
+.corflags 0x00000001    //  ILONLY
+// Image base: 0x011E0000
 
 // Disassemble IntPtr in System for inspiration
 
-.class public sequential ansi sealed serializable beforefieldinit nint extends [System.Runtime]System.ValueType
+.class public sequential ansi sealed serializable beforefieldinit DotNetCross.NativeInts.nint extends [System.Runtime]System.ValueType
 // implements System.Runtime.Serialization.ISerializable
 {
     .field private native int m_value // .custom instance void System.Security.SecurityCriticalAttribute::.ctor() = ( 01 00 00 00 )    
     
-    .field public static initonly valuetype nint Zero
+    .field public static initonly valuetype DotNetCross.NativeInts.nint Zero
 
     .method public hidebysig specialname rtspecialname instance void .ctor (native int 'value') cil managed 
     {
         ldarg.0
-        stfld native int nint::m_value
+        stfld native int DotNetCross.NativeInts.nint::m_value
         ret
     }
     .method public hidebysig specialname rtspecialname instance void .ctor (int32 'value') cil managed 
     {
         ldarg.0
         conv.i
-        stfld native int nint::m_value
+        stfld native int DotNetCross.NativeInts.nint::m_value
         ret
     }
     //
@@ -36,44 +70,44 @@
     //
     // op_Implicit
     // op_Explicit
-    .method public hidebysig specialname static valuetype nint op_Implicit (native int 'value') cil managed 
+    .method public hidebysig specialname static valuetype DotNetCross.NativeInts.nint op_Implicit (native int 'value') cil managed 
     {
         ldarg.0
-        newobj instance void nint::.ctor(native int)
+        newobj instance void DotNetCross.NativeInts.nint::.ctor(native int)
         ret
     }
-    .method public hidebysig specialname static valuetype nint op_Implicit (int32 'value') cil managed 
+    .method public hidebysig specialname static valuetype DotNetCross.NativeInts.nint op_Implicit (int32 'value') cil managed 
     {
         ldarg.0
-        newobj instance void nint::.ctor(int32)
+        newobj instance void DotNetCross.NativeInts.nint::.ctor(int32)
         ret
     }
 
-    .method public hidebysig specialname static valuetype nint op_Explicit (int64 'value') cil managed 
+    .method public hidebysig specialname static valuetype DotNetCross.NativeInts.nint op_Explicit (int64 'value') cil managed 
     {
         ldarg.0
         conv.i // Should we throw on overflow, if native int is 32-bit?
-        newobj instance void nint::.ctor(native int)
+        newobj instance void DotNetCross.NativeInts.nint::.ctor(native int)
         ret
     }
 
-    .method public hidebysig specialname static native int op_Implicit (valuetype nint 'value') cil managed 
+    .method public hidebysig specialname static native int op_Implicit (valuetype DotNetCross.NativeInts.nint 'value') cil managed 
     {
         ldarga.s 'value'
-        ldfld native int nint::m_value
+        ldfld native int DotNetCross.NativeInts.nint::m_value
         ret
     }
-    .method public hidebysig specialname static int64 op_Implicit (valuetype nint 'value') cil managed 
+    .method public hidebysig specialname static int64 op_Implicit (valuetype DotNetCross.NativeInts.nint 'value') cil managed 
     {
         ldarga.s 'value'
-        ldfld native int nint::m_value
+        ldfld native int DotNetCross.NativeInts.nint::m_value
         conv.i8
         ret
     }
-    .method public hidebysig specialname static int32 op_Explicit (valuetype nint 'value') cil managed 
+    .method public hidebysig specialname static int32 op_Explicit (valuetype DotNetCross.NativeInts.nint 'value') cil managed 
     {
         ldarga.s 'value'
-        ldfld native int nint::m_value
+        ldfld native int DotNetCross.NativeInts.nint::m_value
         conv.i4 // Should we throw on overflow, if native int is 64-bit?
         ret
     }

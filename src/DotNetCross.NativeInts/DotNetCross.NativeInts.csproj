@@ -49,7 +49,7 @@
       <IlAsmCommand>"$(FrameworkPath)\Ilasm.exe" /NOLOGO /DLL /OUTPUT:"@(IntermediateAssembly)" </IlAsmCommand>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <IlAsmCommand>$(IlAsmCommand) /DEBUG </IlAsmCommand>
+      <!--<IlAsmCommand>$(IlAsmCommand) /DEBUG </IlAsmCommand>-->
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
       <IlAsmCommand>$(IlAsmCommand) /OPTIMIZE </IlAsmCommand>
