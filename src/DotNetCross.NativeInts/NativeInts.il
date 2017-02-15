@@ -46,23 +46,28 @@
 .class public sequential ansi sealed serializable beforefieldinit DotNetCross.NativeInts.nint extends [System.Runtime]System.ValueType
 // implements System.Runtime.Serialization.ISerializable
 {
-    .field private native int m_value // .custom instance void System.Security.SecurityCriticalAttribute::.ctor() = ( 01 00 00 00 )    
+    .field public  native int Value // .custom instance void System.Security.SecurityCriticalAttribute::.ctor() = ( 01 00 00 00 )    
     
     .field public static initonly valuetype DotNetCross.NativeInts.nint Zero
 
     .method public hidebysig specialname rtspecialname instance void .ctor (native int 'value') cil managed 
     {
-        ldarg.0
-        stfld native int DotNetCross.NativeInts.nint::m_value
+        ldarg.0 // this
+        ldarg.1 // value
+        stfld native int DotNetCross.NativeInts.nint::Value
         ret
     }
     .method public hidebysig specialname rtspecialname instance void .ctor (int32 'value') cil managed 
     {
-        ldarg.0
+        ldarg.0 // this
+        ldarg.1 // value
         conv.i
-        stfld native int DotNetCross.NativeInts.nint::m_value
+        stfld native int DotNetCross.NativeInts.nint::Value
         ret
     }
+
+    // TODO: Add int64 ctor as IntPtr has...
+
     //
     // ECMA I.10.3 Operator overloading
     //
@@ -94,20 +99,20 @@
     .method public hidebysig specialname static native int op_Implicit (valuetype DotNetCross.NativeInts.nint 'value') cil managed 
     {
         ldarga.s 'value'
-        ldfld native int DotNetCross.NativeInts.nint::m_value
+        ldfld native int DotNetCross.NativeInts.nint::Value
         ret
     }
     .method public hidebysig specialname static int64 op_Implicit (valuetype DotNetCross.NativeInts.nint 'value') cil managed 
     {
         ldarga.s 'value'
-        ldfld native int DotNetCross.NativeInts.nint::m_value
+        ldfld native int DotNetCross.NativeInts.nint::Value
         conv.i8
         ret
     }
     .method public hidebysig specialname static int32 op_Explicit (valuetype DotNetCross.NativeInts.nint 'value') cil managed 
     {
         ldarga.s 'value'
-        ldfld native int DotNetCross.NativeInts.nint::m_value
+        ldfld native int DotNetCross.NativeInts.nint::Value
         conv.i4 // Should we throw on overflow, if native int is 64-bit?
         ret
     }
@@ -147,7 +152,7 @@
     //         01 00 00 00
     //     )
     //     IL_0000: ldarga.s 'value'
-    //     IL_0002: ldfld void* System.IntPtr::m_value
+    //     IL_0002: ldfld void* System.IntPtr::Value
     //     IL_0007: ret
     // }
 
@@ -166,7 +171,7 @@
     //     )
 
     //     IL_0000: ldarga.s 'value'
-    //     IL_0002: ldfld void* System.IntPtr::m_value
+    //     IL_0002: ldfld void* System.IntPtr::Value
     //     IL_0007: conv.u8
     //     IL_0008: stloc.0
     //     IL_0009: ldloc.0

@@ -9,6 +9,9 @@
     <PackageReference Include="xunit" Version="2.2.0-beta5-build3474" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0-beta5-build1225" />
   </ItemGroup>
+  
+  <!--<Import Project="../Relative_Output_Path.props" />
+  <Import Project="../Test_Project_Output.props" />-->
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\DotNetCross.NativeInts\DotNetCross.NativeInts.csproj" />
