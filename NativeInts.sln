@@ -9,7 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts.Test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{18128D4D-3526-4A0A-8F78-DB65BE75C063}"
 	ProjectSection(SolutionItems) = preProject
+		all.ps1 = all.ps1
+		build.ps1 = build.ps1
 		ilasm.bat = ilasm.bat
+		LICENSE = LICENSE
+		README.md = README.md
+		restore.ps1 = restore.ps1
+		test.ps1 = test.ps1
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts.Ref", "src\DotNetCross.NativeInts.Ref\DotNetCross.NativeInts.Ref.csproj", "{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}"
