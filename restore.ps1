@@ -1,1 +1,1 @@
-dotnet restore
+dotnet restore -v m

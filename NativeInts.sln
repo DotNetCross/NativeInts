@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{18128D4D-3
 		ilasm.bat = ilasm.bat
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts.Ref", "src\DotNetCross.NativeInts.Ref\DotNetCross.NativeInts.Ref.csproj", "{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,18 @@ Global
 		{5396D38A-EE91-4929-8D51-32004E597CCF}.Release|x64.Build.0 = Release|x64
 		{5396D38A-EE91-4929-8D51-32004E597CCF}.Release|x86.ActiveCfg = Release|x86
 		{5396D38A-EE91-4929-8D51-32004E597CCF}.Release|x86.Build.0 = Release|x86
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Debug|x64.ActiveCfg = Debug|x64
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Debug|x64.Build.0 = Debug|x64
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Debug|x86.ActiveCfg = Debug|x86
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Debug|x86.Build.0 = Debug|x86
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Release|x64.ActiveCfg = Release|x64
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Release|x64.Build.0 = Release|x64
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Release|x86.ActiveCfg = Release|x86
+		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
