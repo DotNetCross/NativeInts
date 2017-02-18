@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{18128D4D-3
 		all.ps1 = all.ps1
 		build.ps1 = build.ps1
 		ilasm.bat = ilasm.bat
+		ildasm.bat = ildasm.bat
 		LICENSE = LICENSE
 		README.md = README.md
 		restore.ps1 = restore.ps1

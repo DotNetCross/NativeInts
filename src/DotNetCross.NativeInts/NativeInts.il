@@ -192,6 +192,33 @@
     //         native int 'value'
     //     ) cil managed     
 
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Increment(valuetype DotNetCross.NativeInts.nint 'value') cil managed
+    {
+        .maxstack  3
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldc.i4.1
+        add
+        newobj     instance void DotNetCross.NativeInts.nint::.ctor(native int)
+        ret
+    } // end of method nint::op_Increment
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Decrement(valuetype DotNetCross.NativeInts.nint 'value') cil managed
+    {
+        .maxstack  3
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldc.i4.1
+        sub
+        newobj     instance void DotNetCross.NativeInts.nint::.ctor(native int)
+        ret
+    } // end of method nint::op_Decrement
+
     //
     // Unary
     //

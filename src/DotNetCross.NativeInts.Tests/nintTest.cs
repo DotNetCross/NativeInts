@@ -55,5 +55,20 @@ namespace DotNetCross.NativeInts.Tests
             nint ni = (nint)42L;
             Assert.Equal(ni.Value, new IntPtr(42L));
         }
+
+        [Fact]
+        public void nintTest_operator_Increment_Pre()
+        {
+            var ni = nint.Zero;
+            ++ni;
+            Assert.Equal(ni, new nint(1));
+        }
+        [Fact]
+        public void nintTest_operator_Increment_Post()
+        {
+            var ni = nint.Zero;
+            ni++;
+            Assert.Equal(ni, new nint(1));
+        }
     }
 }

@@ -1,0 +1,2 @@
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\ildasm.exe" .\src\DotNetCross.NativeInts.Ref\bin\Debug\netstandard1.0\DotNetCross.NativeInts.dll /OUT=.\src\DotNetCross.NativeInts\NativeIntsRef-Debug.il
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\ildasm.exe" .\src\DotNetCross.NativeInts.Ref\bin\Release\netstandard1.0\DotNetCross.NativeInts.dll /OUT=.\src\DotNetCross.NativeInts\NativeIntsRef-Release.il
