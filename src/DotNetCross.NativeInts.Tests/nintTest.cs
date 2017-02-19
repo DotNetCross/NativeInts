@@ -1,15 +1,23 @@
 using System;
 using System.Diagnostics;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DotNetCross.NativeInts.Tests
 {
     public class nintTest
     {
+        private readonly ITestOutputHelper _output;
+
+        public nintTest(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         [Fact]
         public unsafe void TraceSize()
         {
-            Trace.WriteLine(sizeof(nint));
+            _output.WriteLine($"Sizeof {nameof(nint)}:{sizeof(nint)}");
         }
 
         [Fact]
