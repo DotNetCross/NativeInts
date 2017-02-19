@@ -12,6 +12,15 @@ Fully functional safe native integers `nint` and `nuint` for .NET
     // op_Implicit
     // op_Explicit
 
+|**Name**               |**From** |`IntPtr` C# | `UIntPtr` C# | `nint` C# | `nuint` C# |
+|op_Implicit            |         |
+|op_Exlicit             |         |
+
+|**Name**               |**To**   |`IntPtr` C# | `UIntPtr` C# | `nint` C# | `nuint` C# |
+|op_Implicit            |         |
+|op_Exlicit             |         |
+
+
 ### Unary Operators
 |**Name**               |**C++ Operator Symbol** |`IntPtr` C# | `UIntPtr` C# | `nint` C# | `nuint` C# |
 |op_Decrement           |  --<sup>1</sup>        |
