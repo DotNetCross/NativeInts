@@ -47,13 +47,13 @@
   .ver 0:1:0:0
 }
 .module DotNetCross.NativeInts.dll
-// MVID: {17C2FD6F-C786-47D5-AAA3-42E136129070}
+// MVID: {2B56805B-9F46-456A-9D72-E47C62D67BFE}
 .imagebase 0x10000000
 .file alignment 0x00000200
 .stackreserve 0x00100000
 .subsystem 0x0003       // WINDOWS_CUI
 .corflags 0x00000001    //  ILONLY
-// Image base: 0x01100000
+// Image base: 0x00EA0000
 
 
 // =============== CLASS MEMBERS DECLARATION ===================
@@ -61,7 +61,18 @@
 .class public sequential ansi sealed beforefieldinit DotNetCross.NativeInts.nint
        extends [System.Runtime]System.ValueType
 {
+  .field private static initonly bool Is32Bit
   .field public native int Value
+  .method private hidebysig static bool  CheckIs32Bit() cil managed
+  {
+    // Code size       10 (0xa)
+    .maxstack  8
+    IL_0000:  sizeof     [System.Runtime]System.IntPtr
+    IL_0006:  ldc.i4.4
+    IL_0007:  ceq
+    IL_0009:  ret
+  } // end of method nint::CheckIs32Bit
+
   .method public hidebysig specialname rtspecialname 
           instance void  .ctor(native int 'value') cil managed
   {
@@ -191,6 +202,81 @@
     IL_000c:  newobj     instance void DotNetCross.NativeInts.nint::.ctor(native int)
     IL_0011:  ret
   } // end of method nint::op_Decrement
+
+  .method public hidebysig specialname static 
+          valuetype DotNetCross.NativeInts.nint 
+          op_UnaryPlus(valuetype DotNetCross.NativeInts.nint 'value') cil managed
+  {
+    // Code size       2 (0x2)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ret
+  } // end of method nint::op_UnaryPlus
+
+  .method public hidebysig specialname static 
+          valuetype DotNetCross.NativeInts.nint 
+          op_UnaryNegation(valuetype DotNetCross.NativeInts.nint 'value') cil managed
+  {
+    // Code size       43 (0x2b)
+    .maxstack  8
+    IL_0000:  ldsfld     bool DotNetCross.NativeInts.nint::Is32Bit
+    IL_0005:  brtrue.s   IL_0019
+
+    IL_0007:  ldarg.0
+    IL_0008:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_000d:  call       int64 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_0012:  neg
+    IL_0013:  newobj     instance void DotNetCross.NativeInts.nint::.ctor(int64)
+    IL_0018:  ret
+
+    IL_0019:  ldarg.0
+    IL_001a:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_001f:  call       int32 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_0024:  neg
+    IL_0025:  newobj     instance void DotNetCross.NativeInts.nint::.ctor(int32)
+    IL_002a:  ret
+  } // end of method nint::op_UnaryNegation
+
+  .method public hidebysig specialname static 
+          valuetype DotNetCross.NativeInts.nint 
+          op_BitwiseAnd(valuetype DotNetCross.NativeInts.nint a,
+                        valuetype DotNetCross.NativeInts.nint b) cil managed
+  {
+    // Code size       65 (0x41)
+    .maxstack  2
+    IL_0000:  ldsfld     bool DotNetCross.NativeInts.nint::Is32Bit
+    IL_0005:  brtrue.s   IL_0024
+
+    IL_0007:  ldarg.0
+    IL_0008:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_000d:  call       int64 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_0012:  ldarg.1
+    IL_0013:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_0018:  call       int64 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_001d:  and
+    IL_001e:  newobj     instance void DotNetCross.NativeInts.nint::.ctor(int64)
+    IL_0023:  ret
+
+    IL_0024:  ldarg.0
+    IL_0025:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_002a:  call       int32 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_002f:  ldarg.1
+    IL_0030:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_0035:  call       int32 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_003a:  and
+    IL_003b:  newobj     instance void DotNetCross.NativeInts.nint::.ctor(int32)
+    IL_0040:  ret
+  } // end of method nint::op_BitwiseAnd
+
+  .method private hidebysig specialname rtspecialname static 
+          void  .cctor() cil managed
+  {
+    // Code size       11 (0xb)
+    .maxstack  8
+    IL_0000:  call       bool DotNetCross.NativeInts.nint::CheckIs32Bit()
+    IL_0005:  stsfld     bool DotNetCross.NativeInts.nint::Is32Bit
+    IL_000a:  ret
+  } // end of method nint::.cctor
 
 } // end of class DotNetCross.NativeInts.nint
 

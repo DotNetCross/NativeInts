@@ -4,6 +4,12 @@ namespace DotNetCross.NativeInts
 {
     public struct nint
     {
+        private static readonly bool Is32Bit = CheckIs32Bit();
+        private static unsafe bool CheckIs32Bit()
+        {
+            return sizeof(IntPtr) == sizeof(int);
+        }
+
         public IntPtr Value;
 
         public nint(IntPtr value)
@@ -31,5 +37,19 @@ namespace DotNetCross.NativeInts
 
         public static nint operator ++(nint value) => new nint(value.Value + 1);
         public static nint operator --(nint value) => new nint(value.Value - 1);
+
+        public static nint operator +(nint value) => value;
+        public static nint operator -(nint value)
+        {
+            return Is32Bit ? new nint(-(int)value.Value)
+                           : new nint(-(long)value.Value);
+        }
+
+        public unsafe static nint operator &(nint a, nint b)
+        {
+            return Is32Bit ? new nint((int)a.Value & (int)b.Value)
+                           : new nint((long)a.Value & (long)b.Value);
+        }
+
     }
 }

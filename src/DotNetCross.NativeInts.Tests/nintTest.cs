@@ -70,5 +70,33 @@ namespace DotNetCross.NativeInts.Tests
             ni++;
             Assert.Equal(ni, new nint(1));
         }
+
+        [Fact]
+        public void nintTest_operator_Decrement_Pre()
+        {
+            var ni = nint.Zero;
+            --ni;
+            Assert.Equal(ni, new nint(-1));
+        }
+        [Fact]
+        public void nintTest_operator_Decrement_Post()
+        {
+            var ni = nint.Zero;
+            ni--;
+            Assert.Equal(ni, new nint(-1));
+        }
+
+        [Fact]
+        public void nintTest_operator_UnaryPlus()
+        {
+            var ni = new nint(1);
+            Assert.Equal(+ni, new nint(1));
+        }
+        [Fact]
+        public void nintTest_operator_UnaryNegate()
+        {
+            var ni = new nint(1);
+            Assert.Equal(-ni, new nint(-1));
+        }
     }
 }
