@@ -1,10 +1,17 @@
 using System;
+using System.Diagnostics;
 using Xunit;
 
 namespace DotNetCross.NativeInts.Tests
 {
     public class nintTest
     {
+        [Fact]
+        public unsafe void TraceSize()
+        {
+            Trace.WriteLine(sizeof(nint));
+        }
+
         [Fact]
         public void Zero()
         {
@@ -73,6 +80,15 @@ namespace DotNetCross.NativeInts.Tests
         {
             int i = (int)new nint(42);
             Assert.Equal(i, 42);
+        }
+
+        [Fact]
+        public void explicit_conversion_to_byte_via_int()
+        {
+            Assert.Equal((byte)new nint(0), (byte)0);
+            Assert.Equal((byte)new nint(42), (byte)42);
+            Assert.Equal((byte)new nint(255), byte.MaxValue);
+            Assert.Equal((byte)new nint(256), (byte)0);
         }
 
         [Fact]
