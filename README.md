@@ -26,8 +26,8 @@ Fully functional safe native integers `nint` and `nuint` for .NET
 ### Unary Operators
 |**Name**               |**C++ Operator Symbol** |`IntPtr` C# | `UIntPtr` C# | `nint` C# | `nuint` C# |
 |--|--|--|--|--|--|
-|op_Decrement           |  --<sup>1</sup>        |
-|op_Increment           |  ++<sup>1</sup>        |
+|op_Decrement           |  --<sup>1</sup>        | N/A        | N/A          | Yes       | Yes        |
+|op_Increment           |  ++<sup>1</sup>        | N/A        | N/A          | Yes       | Yes        |
 |op_UnaryNegation       |  - (unary)             |
 |op_UnaryPlus           |  + (unary)             |
 |op_LogicalNot          |  !                     |

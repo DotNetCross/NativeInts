@@ -59,5 +59,12 @@ namespace DotNetCross.NativeInts.Tests
             //++ip;
             //Assert.Equal(ip, new IntPtr(1));
         }
+        [Fact(Skip = NotAvailable)]
+        public void operator_Decrement()
+        {
+            //var ip = IntPtr.Zero;
+            //--ip;
+            //Assert.Equal(ip, new IntPtr(1));
+        }
     }
 }
