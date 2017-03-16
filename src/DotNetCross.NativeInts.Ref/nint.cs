@@ -45,6 +45,12 @@ namespace DotNetCross.NativeInts
                            : new nint(-(long)value.Value);
         }
 
+        public unsafe static nint operator ~(nint value)
+        {
+            return Is32Bit ? new nint(~(int)value.Value)
+                           : new nint(~(long)value.Value);
+        }
+
         public unsafe static nint operator &(nint a, nint b)
         {
             return Is32Bit ? new nint((int)a.Value & (int)b.Value)

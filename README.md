@@ -26,16 +26,16 @@ Fully functional safe native integers `nint` and `nuint` for .NET
 ### Unary Operators
 |**Name**               |**C++ Operator Symbol** |`IntPtr` C# | `UIntPtr` C# | `nint` C# | `nuint` C# |
 |--|--|--|--|--|--|
-|op_Decrement           |  --<sup>1</sup>        | N/A        | N/A          | Yes       | Yes        |
-|op_Increment           |  ++<sup>1</sup>        | N/A        | N/A          | Yes       | Yes        |
-|op_UnaryNegation       |  - (unary)             |
-|op_UnaryPlus           |  + (unary)             |
-|op_LogicalNot          |  !                     |
-|op_True                |  ND<sup>2</sup>        |
-|op_False               |  ND<sup>2</sup>        |
-|op_AddressOf           |  & (unary)             |
-|op_OnesComplement      |  ~                     |
-|op_PointerDereference  |  * (unary)             |
+|op_Decrement           |  --<sup>1</sup>        | N/A         | N/A           | Yes        | Yes        |
+|op_Increment           |  ++<sup>1</sup>        | N/A         | N/A           | Yes        | Yes        |
+|op_UnaryNegation       |  - (unary)             | N/A         | N/A           | Yes        | Yes        |
+|op_UnaryPlus           |  + (unary)             | N/A         | N/A           | Yes        | Yes        |
+|op_LogicalNot          |  !                     | N/A         | N/A           | N/A        | N/A        | 
+|op_True                |  ND<sup>2</sup>        | N/A         | N/A           | N/A        | N/A        | 
+|op_False               |  ND<sup>2</sup>        | N/A         | N/A           | N/A        | N/A        | 
+|op_AddressOf           |  & (unary)             | N/A         | N/A           | N/A        | N/A        | 
+|op_OnesComplement      |  ~                     | N/A         | N/A           | Yes        | Yes        |
+|op_PointerDereference  |  * (unary)             | N/A         | N/A           | N/A        | N/A        | 
 
 <sup>1</sup> From a pure C++ point of view, the way one must write these functions for the CLI differs in
 one very important aspect. In C++, these methods must increment or decrement their operand

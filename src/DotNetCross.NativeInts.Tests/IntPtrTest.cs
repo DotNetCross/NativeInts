@@ -66,5 +66,17 @@ namespace DotNetCross.NativeInts.Tests
             //--ip;
             //Assert.Equal(ip, new IntPtr(1));
         }
+        [Fact(Skip = NotAvailable)]
+        public void operator_UnaryPlus()
+        {
+            //var ip = new IntPtr(1);
+            //Assert.Equal(+ip, new IntPtr(1));
+        }
+        [Fact(Skip = NotAvailable)]
+        public void operator_UnaryNegate()
+        {
+            //var ip = new IntPtr(1);
+            //Assert.Equal(-ip, new IntPtr(-1));
+        }
     }
 }

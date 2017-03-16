@@ -135,5 +135,13 @@ namespace DotNetCross.NativeInts.TestsFramework
             var ni = new nint(1);
             Assert.AreEqual(-ni, new nint(-1));
         }
+
+        [TestMethod]
+        public void operator_OnesComplement()
+        {
+            Assert.AreEqual(~new nint(1), new nint(-2));
+            Assert.AreEqual(~new nint(0), new nint(-1));
+            Assert.AreEqual(~new nint(-1), new nint(0));
+        }
     }
 }
