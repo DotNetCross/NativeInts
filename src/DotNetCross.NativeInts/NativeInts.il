@@ -55,7 +55,7 @@
 .class public sequential ansi sealed serializable beforefieldinit DotNetCross.NativeInts.nint extends [System.Runtime]System.ValueType
 // implements System.Runtime.Serialization.ISerializable
 {
-    .field public  native int Value // .custom instance void System.Security.SecurityCriticalAttribute::.ctor() = ( 01 00 00 00 )    
+    .field public native int Value // .custom instance void System.Security.SecurityCriticalAttribute::.ctor() = ( 01 00 00 00 )    
     
     .field public static initonly valuetype DotNetCross.NativeInts.nint Zero
 
@@ -193,6 +193,17 @@
         neg
         ret
     } // end of method nint::op_UnaryNegation
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_OnesComplement(valuetype DotNetCross.NativeInts.nint 'value') cil managed
+    {
+        .maxstack  1
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        not
+        ret
+    } // end of method nint::op_OnesComplement
 
     // 
     // Binary
