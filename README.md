@@ -62,8 +62,8 @@ with `(R)` meaning "right only", `(L)` meaning "left only".
 |op_LogicalAnd 					| &&					  |N/A            |N/A               |N/A                            |N/A                                | 
 |op_LogicalOr  					| ||					  |N/A            |N/A               |N/A                            |N/A                                | 
 |op_Assign  					| N/D (= is not the same) |N/A            |N/A               |N/A                            |N/A                                | 
-|op_LeftShift  					| <<					  |
-|op_RightShift  				| >>					  |
+|op_LeftShift  					| <<					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
+|op_RightShift  				| >>					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_SignedRightShift  			| N/D					  |
 |op_UnsignedRightShift			| N/D					  |
 |op_Equality  					| ==					  |
