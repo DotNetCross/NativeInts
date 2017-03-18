@@ -48,6 +48,45 @@ to these methods.
 Boolean types, such as those used in database languages. 
 
 ### Binary Operators
+
+|**Name**						|**C++ Operator Symbol**  |`IntPtr` C#   | `UIntPtr` C#   | `nint` C#      | `nuint` C#       |
+|--|--|--|--|--|--|--|--|
+|op_Addition					| +                       |`int` (Right)  | `uint` (Right) | `nint`, `int` | `nuint`, `uint`  |
+|op_Subtraction					| - 					  |
+|op_Multiply					| * 					  |
+|op_Division 					| /						  |
+|op_Modulus 					| %						  |
+|op_ExclusiveOr 				| ^						  |
+|op_BitwiseAnd 					| & 					  |
+|op_BitwiseOr 					| |						  |
+|op_LogicalAnd 					| &&					  |
+|op_LogicalOr  					| ||					  |
+|op_Assign  					| N/D (= is not the same) |
+|op_LeftShift  					| <<					  |
+|op_RightShift  				| >>					  |
+|op_SignedRightShift  			| N/D					  |
+|op_UnsignedRightShift			| N/D					  |
+|op_Equality  					| ==					  |
+|op_GreaterThan  				| >						  |
+|op_LessThan  					| <						  |
+|op_Inequality  				| !=					  |
+|op_GreaterThanOrEqual			| >=					  |
+|op_LessThanOrEqual  			| <=					  |
+|op_UnsignedRightShiftAssignment| Not defined			  |
+|op_MemberSelection  			| ->					  |
+|op_RightShiftAssignment  		| >>=					  |
+|op_MultiplicationAssignment  	| \*=					  |
+|op_PointerToMemberSelection  	| ->\*					  |
+|op_SubtractionAssignment  		| -=					  |
+|op_ExclusiveOrAssignment  		| ^=					  |
+|op_LeftShiftAssignment  		| <<=					  |
+|op_ModulusAssignment  			| %=					  |
+|op_AdditionAssignment  		| +=					  |
+|op_BitwiseAndAssignment  		| &=					  |
+|op_BitwiseOrAssignment  		| |=					  |
+|op_Comma  						| ,						  |
+|op_DivisionAssignment  		| /=					  |
+
     // 
     // Binary
     // 

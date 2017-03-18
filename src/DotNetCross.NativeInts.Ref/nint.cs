@@ -35,6 +35,9 @@ namespace DotNetCross.NativeInts
         public static implicit operator long(nint value) => (long)value.Value;
         public static explicit operator int(nint value) => (int)value.Value;
 
+        //
+        // Unary
+        //
         public static nint operator ++(nint value) => new nint(value.Value + 1);
         public static nint operator --(nint value) => new nint(value.Value - 1);
 
@@ -51,11 +54,43 @@ namespace DotNetCross.NativeInts
                            : new nint(~(long)value.Value);
         }
 
-        public unsafe static nint operator &(nint a, nint b)
+        //
+        // Binary
+        //
+        public unsafe static nint operator +(nint l, nint r)
         {
-            return Is32Bit ? new nint((int)a.Value & (int)b.Value)
-                           : new nint((long)a.Value & (long)b.Value);
+            return Is32Bit ? new nint((int)l.Value + (int)r.Value)
+                           : new nint((long)l.Value + (long)r.Value);
         }
+        public unsafe static nint operator +(nint l, int r)
+        {
+            return l.Value + r;
+        }
+        public unsafe static nint operator +(int l, nint r)
+        {
+            return r.Value + l;
+        }
+
+        public unsafe static nint operator -(nint l, nint r)
+        {
+            return Is32Bit ? new nint((int)l.Value - (int)r.Value)
+                           : new nint((long)l.Value - (long)r.Value);
+        }
+        public unsafe static nint operator -(nint l, int r)
+        {
+            return l.Value - r;
+        }
+        public unsafe static nint operator -(int l, nint r)
+        {
+            return r.Value - l;
+        }
+
+        public unsafe static nint operator &(nint l, nint r)
+        {
+            return Is32Bit ? new nint((int)l.Value & (int)r.Value)
+                           : new nint((long)l.Value & (long)r.Value);
+        }
+
 
     }
 }

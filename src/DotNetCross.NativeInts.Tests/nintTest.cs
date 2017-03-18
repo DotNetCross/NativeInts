@@ -7,6 +7,8 @@ namespace DotNetCross.NativeInts.Tests
 {
     public class nintTest
     {
+        private const string NotAvailable = "This feature not available for nint";
+
         private readonly ITestOutputHelper _output;
 
         public nintTest(ITestOutputHelper output)
@@ -140,6 +142,43 @@ namespace DotNetCross.NativeInts.Tests
         {
             var ni = new nint(1);
             Assert.Equal(-ni, new nint(-1));
+        }
+
+        [Fact(Skip = NotAvailable)]
+        public void operator_OnesComplement()
+        {
+            Assert.Equal(~new nint(1), new nint(-2));
+            Assert.Equal(~new nint(0), new nint(-1));
+            Assert.Equal(~new nint(-1), new nint(0));
+        }
+
+        [Fact]
+        public void operator_Addition_nint()
+        {
+            var ni = new nint(1);
+            Assert.Equal(ni + new nint(1), new nint(2));
+            Assert.Equal(new nint(1) + ni, new nint(2));
+        }
+        [Fact]
+        public void operator_Addition_IntPtr()
+        {
+            var ni = new nint(1);
+            Assert.Equal(ni + new IntPtr(1), new nint(2));
+            Assert.Equal(new IntPtr(1) + ni, new nint(2));
+        }
+        [Fact]
+        public void operator_Addition_int()
+        {
+            var ni = new nint(1);
+            Assert.Equal(ni + 1, new nint(2));
+            Assert.Equal(1 + ni, new nint(2));
+        }
+        [Fact(Skip = NotAvailable)]
+        public void operator_Addition_uint()
+        {
+            //var ni = new nint(1);
+            //Assert.Equal(ni + 1u, new nint(2));
+            //Assert.Equal(1u + ni, new nint(2));
         }
     }
 }

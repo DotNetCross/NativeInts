@@ -143,5 +143,34 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.AreEqual(~new nint(0), new nint(-1));
             Assert.AreEqual(~new nint(-1), new nint(0));
         }
+
+        [TestMethod]
+        public void operator_Addition_nint()
+        {
+            var ni = new nint(1);
+            Assert.AreEqual(ni + new nint(1), new nint(2));
+            Assert.AreEqual(new nint(1) + ni, new nint(2));
+        }
+        [TestMethod]
+        public void operator_Addition_IntPtr()
+        {
+            var ni = new nint(1);
+            Assert.AreEqual(ni + new IntPtr(1), new nint(2));
+            Assert.AreEqual(new IntPtr(1) + ni, new nint(2));
+        }
+        [TestMethod]
+        public void operator_Addition_int()
+        {
+            var ni = new nint(1);
+            Assert.AreEqual(ni + 1, new nint(2));
+            Assert.AreEqual(1 + ni, new nint(2));
+        }
+        //[TestMethod]
+        //public void operator_Addition_uint()
+        //{
+        //    //var ni = new nint(1);
+        //    //Assert.AreEqual(ni + 1u, new nint(2));
+        //    //Assert.AreEqual(1u + ni, new nint(2));
+        //}
     }
 }

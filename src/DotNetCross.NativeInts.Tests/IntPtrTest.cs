@@ -78,5 +78,36 @@ namespace DotNetCross.NativeInts.Tests
             //var ip = new IntPtr(1);
             //Assert.Equal(-ip, new IntPtr(-1));
         }
+
+        [Fact(Skip = NotAvailable)]
+        public void operator_OnesComplement()
+        {
+            //Assert.Equal(~new IntPtr(1), new IntPtr(-2));
+            //Assert.Equal(~new IntPtr(0), new IntPtr(-1));
+            //Assert.Equal(~new IntPtr(-1), new IntPtr(0));
+        }
+
+        [Fact(Skip = NotAvailable)]
+        public void operator_Addition_IntPtr()
+        {
+            //var ip = new IntPtr(1);
+            //Assert.Equal(ip + new IntPtr(1), new IntPtr(2));
+            //Assert.Equal(new IntPtr(1) + ip, new IntPtr(2));
+        }
+        [Fact]
+        public void operator_Addition_int()
+        {
+            var ip = new IntPtr(1);
+            Assert.Equal(ip + 1, new IntPtr(2));
+            // Below not available
+            //Assert.Equal(1 + ip, new IntPtr(2));
+        }
+        [Fact(Skip = NotAvailable)]
+        public void operator_Addition_uint()
+        {
+            //var ip = new IntPtr(1);
+            //Assert.Equal(ip + 1u, new IntPtr(2));
+            //Assert.Equal(1u + ip, new IntPtr(2));
+        }
     }
 }

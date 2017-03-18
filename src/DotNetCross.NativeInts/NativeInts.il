@@ -244,4 +244,83 @@
     // op_Comma ,
     // op_DivisionAssignment /=
 
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Addition(valuetype DotNetCross.NativeInts.nint l,
+                        valuetype DotNetCross.NativeInts.nint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        add
+        ret
+    } // end of method nint::op_Addition
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Addition(valuetype DotNetCross.NativeInts.nint l,
+                        int32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        add
+        ret
+    } // end of method nint::op_Addition
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Addition(int32 l,
+                        valuetype DotNetCross.NativeInts.nint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        add
+        ret
+    } // end of method nint::op_Addition
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Subtraction(valuetype DotNetCross.NativeInts.nint l,
+                            valuetype DotNetCross.NativeInts.nint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        sub
+        ret
+    } // end of method nint::op_Subtraction
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Subtraction(valuetype DotNetCross.NativeInts.nint l,
+                            int32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        sub
+        ret
+    } // end of method nint::op_Subtraction
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Subtraction(int32 l,
+                            valuetype DotNetCross.NativeInts.nint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        sub
+        ret
+    } // end of method nint::op_Subtraction
 }
