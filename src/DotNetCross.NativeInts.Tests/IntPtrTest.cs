@@ -132,5 +132,31 @@ namespace DotNetCross.NativeInts.Tests
             //Assert.Equal(ip - 1u, new IntPtr(0));
             //Assert.Equal(1u - ip, new IntPtr(0));
         }
+
+        [Fact(Skip = NotAvailable)]
+        public void operator_Multiply_IntPtr()
+        {
+            //var ip = new IntPtr(7);
+            //Assert.Equal(ip * new IntPtr(2), new IntPtr(14));
+        }
+        [Fact(Skip = NotAvailable)]
+        public void operator_Multiply_int()
+        {
+            //var ip = new IntPtr(7);
+            //Assert.Equal(ip * 2, new IntPtr(14));
+        }
+
+        [Fact(Skip = NotAvailable)]
+        public void operator_Division_IntPtr()
+        {
+            //var ip = new IntPtr(7);
+            //Assert.Equal(ip / new IntPtr(2), new IntPtr(3));
+        }
+        [Fact(Skip = NotAvailable)]
+        public void operator_Division_int()
+        {
+            //var ip = new IntPtr(7);
+            //Assert.Equal(ip / 2, new IntPtr(3));
+        }
     }
 }

@@ -187,5 +187,43 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.AreEqual(ni - 1, new nint(0));
             Assert.AreEqual(1 - ni, new nint(0));
         }
+
+        [TestMethod]
+        public void operator_Multiply_nint()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni * new nint(2), new nint(14));
+        }
+        [TestMethod]
+        public void operator_Multiply_IntPtr()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni * new IntPtr(2), new nint(14));
+        }
+        [TestMethod]
+        public void operator_Multiply_int()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni * 2, new nint(14));
+        }
+
+        [TestMethod]
+        public void operator_Division_nint()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni / new nint(2), new nint(3));
+        }
+        [TestMethod]
+        public void operator_Division_IntPtr()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni / new IntPtr(2), new nint(3));
+        }
+        [TestMethod]
+        public void operator_Division_int()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni / 2, new nint(3));
+        }
     }
 }

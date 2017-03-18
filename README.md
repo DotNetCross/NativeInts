@@ -1,16 +1,12 @@
 # NativeInts
-Fully functional safe native integers `nint` and `nuint` for .NET
+Straightforward `nint` and `nuint` native integers, written in IL, probably second best to proper compiler support.
+Fully functional.
 
 ## Comparing `IntPtr`/`UIntPtr` vs `nint`/`nuint`
+Based on "I.10.3 Operator overloading" section from the ECMA.
 
 ### Conversions
     //
-    // ECMA I.10.3 Operator overloading
-    //
-    // Conversions
-    //
-    // op_Implicit
-    // op_Explicit
 
 |**Name**               |**From** |`IntPtr` C# | `UIntPtr` C# | `nint` C# | `nuint` C# |
 |--|--|--|--|--|--|
@@ -48,13 +44,17 @@ to these methods.
 Boolean types, such as those used in database languages. 
 
 ### Binary Operators
+Table shows the types that can be used together with the type in header for a given binary operator.
+By default this if for the type on either left or right side of expression (binary operator).
+However, for `IntPtr`/`UIntPtr` an operator might only be available for a type at a specific side of the expression,
+with `(R)` meaning "right only", `(L)` meaning "left only".
 
 |**Name**						|**C++ Operator Symbol**  |`IntPtr` C#   | `UIntPtr` C#   | `nint` C#      | `nuint` C#       |
 |--|--|--|--|--|--|--|--|
-|op_Addition					| +                       |`int` (Right)  | `uint` (Right) | `nint`, `int` | `nuint`, `uint`  |
-|op_Subtraction					| - 					  |
-|op_Multiply					| * 					  |
-|op_Division 					| /						  |
+|op_Addition					| +                       |`int (R)`	  |`uint (R)`      |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
+|op_Subtraction				    | - 					  |`int (R)`	  |`uint (R)`      |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
+|op_Multiply					| * 					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
+|op_Division 					| /						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_Modulus 					| %						  |
 |op_ExclusiveOr 				| ^						  |
 |op_BitwiseAnd 					| & 					  |

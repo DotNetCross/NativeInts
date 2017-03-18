@@ -323,4 +323,61 @@
         sub
         ret
     } // end of method nint::op_Subtraction
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Multiply(valuetype DotNetCross.NativeInts.nint l,
+                        valuetype DotNetCross.NativeInts.nint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        mul
+        ret
+    } // end of method nint::op_Multiply
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Multiply(valuetype DotNetCross.NativeInts.nint l,
+                        int32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        conv.i
+        mul
+        ret
+    } // end of method nint::op_Multiply
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Division(valuetype DotNetCross.NativeInts.nint l,
+                        valuetype DotNetCross.NativeInts.nint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        div
+        ret
+    } // end of method nint::op_Division
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_Division(valuetype DotNetCross.NativeInts.nint l,
+                        int32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        conv.i
+        div
+        ret
+    } // end of method nint::op_Division
+
 }
