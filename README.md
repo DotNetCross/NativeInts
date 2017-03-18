@@ -56,9 +56,9 @@ with `(R)` meaning "right only", `(L)` meaning "left only".
 |op_Multiply					| * 					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_Division 					| /						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_Modulus 					| %						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
-|op_ExclusiveOr 				| ^						  |
-|op_BitwiseAnd 					| & 					  |
-|op_BitwiseOr 					| |						  |
+|op_ExclusiveOr 				| ^						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
+|op_BitwiseAnd 					| & 					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
+|op_BitwiseOr 					| |						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_LogicalAnd 					| &&					  |
 |op_LogicalOr  					| ||					  |
 |op_Assign  					| N/D (= is not the same) |

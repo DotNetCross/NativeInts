@@ -118,12 +118,38 @@ namespace DotNetCross.NativeInts
                            : new nint((long)l.Value % r);
         }
 
+        public unsafe static nint operator ^(nint l, nint r)
+        {
+            return Is32Bit ? new nint((int)l.Value ^ (int)r.Value)
+                           : new nint((long)l.Value ^ (long)r.Value);
+        }
+        public unsafe static nint operator ^(nint l, int r)
+        {
+            return Is32Bit ? new nint((int)l.Value ^ r)
+                           : new nint((long)l.Value ^ (long)r);
+        }
+
         public unsafe static nint operator &(nint l, nint r)
         {
             return Is32Bit ? new nint((int)l.Value & (int)r.Value)
                            : new nint((long)l.Value & (long)r.Value);
         }
+        public unsafe static nint operator &(nint l, int r)
+        {
+            return Is32Bit ? new nint((int)l.Value & r)
+                           : new nint((long)l.Value & (long)r);
+        }
 
+        public unsafe static nint operator |(nint l, nint r)
+        {
+            return Is32Bit ? new nint((int)l.Value | (int)r.Value)
+                           : new nint((long)l.Value | (long)r.Value);
+        }
+        public unsafe static nint operator |(nint l, int r)
+        {
+            return Is32Bit ? new nint((int)l.Value | r)
+                           : new nint((long)l.Value | (long)r);
+        }
 
     }
 }

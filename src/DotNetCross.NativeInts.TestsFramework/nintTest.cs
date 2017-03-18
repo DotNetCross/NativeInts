@@ -244,5 +244,63 @@ namespace DotNetCross.NativeInts.TestsFramework
             var ni = new nint(7);
             Assert.AreEqual(ni % 4, new nint(3));
         }
+
+        [TestMethod]
+        public void operator_ExclusiveOr_nint()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni ^ new nint(4), new nint(3));
+
+        }
+        [TestMethod]
+        public void operator_ExclusiveOr_IntPtr()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni ^ new IntPtr(4), new nint(3));
+        }
+        [TestMethod]
+        public void operator_ExclusiveOr_int()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni ^ 4, new nint(3));
+        }
+
+        [TestMethod]
+        public void operator_BitwiseAnd_nint()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni & new nint(12), new nint(4));
+        }
+        [TestMethod]
+        public void operator_BitwiseAnd_IntPtr()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni & new IntPtr(12), new nint(4));
+        }
+        [TestMethod]
+        public void operator_BitwiseAnd_int()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni & 12, new nint(4));
+        }
+
+        [TestMethod]
+        public void operator_BitwiseOr_nint()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni | new nint(8), new nint(15));
+        }
+        [TestMethod]
+        public void operator_BitwiseOr_IntPtr()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni | new IntPtr(8), new nint(15));
+        }
+        [TestMethod]
+        public void operator_BitwiseOr_int()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni | 8, new nint(15));
+        }
     }
 }
