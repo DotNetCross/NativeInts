@@ -492,4 +492,58 @@
         or
         ret
     } // end of method nint::op_BitwiseOr
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_LeftShift(valuetype DotNetCross.NativeInts.nint l,
+                         valuetype DotNetCross.NativeInts.nint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        shl
+        ret
+    } // end of method nint::op_LeftShift
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_LeftShift(valuetype DotNetCross.NativeInts.nint l,
+                         int32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        shl
+        ret
+    } // end of method nint::op_LeftShift
+        
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_RightShift(valuetype DotNetCross.NativeInts.nint l,
+                          valuetype DotNetCross.NativeInts.nint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        shr
+        ret
+    } // end of method nint::op_RightShift
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nint 
+            op_RightShift(valuetype DotNetCross.NativeInts.nint l,
+                          int32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native int DotNetCross.NativeInts.nint::Value
+        ldarg.1
+        shr
+        ret
+    } // end of method nint::op_RightShift
 }

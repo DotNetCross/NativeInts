@@ -59,9 +59,9 @@ with `(R)` meaning "right only", `(L)` meaning "left only".
 |op_ExclusiveOr 				| ^						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_BitwiseAnd 					| & 					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_BitwiseOr 					| |						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
-|op_LogicalAnd 					| &&					  |
-|op_LogicalOr  					| ||					  |
-|op_Assign  					| N/D (= is not the same) |
+|op_LogicalAnd 					| &&					  |N/A            |N/A               |N/A                            |N/A                                | 
+|op_LogicalOr  					| ||					  |N/A            |N/A               |N/A                            |N/A                                | 
+|op_Assign  					| N/D (= is not the same) |N/A            |N/A               |N/A                            |N/A                                | 
 |op_LeftShift  					| <<					  |
 |op_RightShift  				| >>					  |
 |op_SignedRightShift  			| N/D					  |

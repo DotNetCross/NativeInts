@@ -165,7 +165,7 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.AreEqual(ni + 1, new nint(2));
             Assert.AreEqual(1 + ni, new nint(2));
         }
-        
+
         [TestMethod]
         public void operator_Subtraction_nint()
         {
@@ -301,6 +301,44 @@ namespace DotNetCross.NativeInts.TestsFramework
         {
             var ni = new nint(7);
             Assert.AreEqual(ni | 8, new nint(15));
+        }
+
+        [TestMethod]
+        public void operator_LeftShift_nint()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni << new nint(2), new nint(28));
+        }
+        [TestMethod]
+        public void operator_LeftShift_IntPtr()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni << new IntPtr(2), new nint(28));
+        }
+        [TestMethod]
+        public void operator_LeftShift_int()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni << 2, new nint(28));
+        }
+
+        [TestMethod]
+        public void operator_RightShift_nint()
+        {
+            var ni = new nint(28);
+            Assert.AreEqual(ni >> new nint(2), new nint(7));
+        }
+        [TestMethod]
+        public void operator_RightShift_IntPtr()
+        {
+            var ni = new nint(28);
+            Assert.AreEqual(ni >> new IntPtr(2), new nint(7));
+        }
+        [TestMethod]
+        public void operator_RightShift_int()
+        {
+            var ni = new nint(28);
+            Assert.AreEqual(ni >> 2, new nint(7));
         }
     }
 }

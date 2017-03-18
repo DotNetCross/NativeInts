@@ -151,5 +151,20 @@ namespace DotNetCross.NativeInts
                            : new nint((long)l.Value | (long)r);
         }
 
+        // <<(nint l, nint r) overload not allowed in C#
+
+        public unsafe static nint operator <<(nint l, int r)
+        {
+            return Is32Bit ? new nint((int)l.Value << r)
+                           : new nint((long)l.Value << r);
+        }
+
+        // >>(nint l, nint r) overload not allowed in C#
+
+        public unsafe static nint operator >>(nint l, int r)
+        {
+            return Is32Bit ? new nint((int)l.Value >> r)
+                           : new nint((long)l.Value >> r);
+        }
     }
 }

@@ -47,13 +47,13 @@
   .ver 0:1:0:0
 }
 .module DotNetCross.NativeInts.dll
-// MVID: {C202C01A-72A3-425E-88FB-87FA4E657ED8}
+// MVID: {F28C4A3B-3370-4C1F-B2BA-C27E1008154E}
 .imagebase 0x10000000
 .file alignment 0x00000200
 .stackreserve 0x00100000
 .subsystem 0x0003       // WINDOWS_CUI
 .corflags 0x00000001    //  ILONLY
-// Image base: 0x017C0000
+// Image base: 0x02ED0000
 
 
 // =============== CLASS MEMBERS DECLARATION ===================
@@ -740,6 +740,68 @@
     IL_0028:  newobj     instance void DotNetCross.NativeInts.nint::.ctor(int32)
     IL_002d:  ret
   } // end of method nint::op_BitwiseOr
+
+  .method public hidebysig specialname static 
+          valuetype DotNetCross.NativeInts.nint 
+          op_LeftShift(valuetype DotNetCross.NativeInts.nint l,
+                       int32 r) cil managed
+  {
+    // Code size       51 (0x33)
+    .maxstack  8
+    IL_0000:  ldsfld     bool DotNetCross.NativeInts.nint::Is32Bit
+    IL_0005:  brtrue.s   IL_001d
+
+    IL_0007:  ldarg.0
+    IL_0008:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_000d:  call       int64 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_0012:  ldarg.1
+    IL_0013:  ldc.i4.s   63
+    IL_0015:  and
+    IL_0016:  shl
+    IL_0017:  newobj     instance void DotNetCross.NativeInts.nint::.ctor(int64)
+    IL_001c:  ret
+
+    IL_001d:  ldarg.0
+    IL_001e:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_0023:  call       int32 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_0028:  ldarg.1
+    IL_0029:  ldc.i4.s   31
+    IL_002b:  and
+    IL_002c:  shl
+    IL_002d:  newobj     instance void DotNetCross.NativeInts.nint::.ctor(int32)
+    IL_0032:  ret
+  } // end of method nint::op_LeftShift
+
+  .method public hidebysig specialname static 
+          valuetype DotNetCross.NativeInts.nint 
+          op_RightShift(valuetype DotNetCross.NativeInts.nint l,
+                        int32 r) cil managed
+  {
+    // Code size       51 (0x33)
+    .maxstack  8
+    IL_0000:  ldsfld     bool DotNetCross.NativeInts.nint::Is32Bit
+    IL_0005:  brtrue.s   IL_001d
+
+    IL_0007:  ldarg.0
+    IL_0008:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_000d:  call       int64 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_0012:  ldarg.1
+    IL_0013:  ldc.i4.s   63
+    IL_0015:  and
+    IL_0016:  shr
+    IL_0017:  newobj     instance void DotNetCross.NativeInts.nint::.ctor(int64)
+    IL_001c:  ret
+
+    IL_001d:  ldarg.0
+    IL_001e:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_0023:  call       int32 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_0028:  ldarg.1
+    IL_0029:  ldc.i4.s   31
+    IL_002b:  and
+    IL_002c:  shr
+    IL_002d:  newobj     instance void DotNetCross.NativeInts.nint::.ctor(int32)
+    IL_0032:  ret
+  } // end of method nint::op_RightShift
 
   .method private hidebysig specialname rtspecialname static 
           void  .cctor() cil managed
