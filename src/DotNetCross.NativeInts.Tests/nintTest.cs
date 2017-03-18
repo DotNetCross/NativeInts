@@ -144,7 +144,7 @@ namespace DotNetCross.NativeInts.Tests
             Assert.Equal(-ni, new nint(-1));
         }
 
-        [Fact(Skip = NotAvailable)]
+        [Fact]
         public void operator_OnesComplement()
         {
             Assert.Equal(~new nint(1), new nint(-2));
@@ -173,12 +173,27 @@ namespace DotNetCross.NativeInts.Tests
             Assert.Equal(ni + 1, new nint(2));
             Assert.Equal(1 + ni, new nint(2));
         }
-        [Fact(Skip = NotAvailable)]
-        public void operator_Addition_uint()
+
+        [Fact]
+        public void operator_Subtraction_nint()
         {
-            //var ni = new nint(1);
-            //Assert.Equal(ni + 1u, new nint(2));
-            //Assert.Equal(1u + ni, new nint(2));
+            var ni = new nint(1);
+            Assert.Equal(ni - new nint(1), new nint(0));
+            Assert.Equal(new nint(1) - ni, new nint(0));
+        }
+        [Fact]
+        public void operator_Subtraction_IntPtr()
+        {
+            var ni = new nint(1);
+            Assert.Equal(ni - new IntPtr(1), new nint(0));
+            Assert.Equal(new IntPtr(1) - ni, new nint(0));
+        }
+        [Fact]
+        public void operator_Subtraction_int()
+        {
+            var ni = new nint(1);
+            Assert.Equal(ni - 1, new nint(0));
+            Assert.Equal(1 - ni, new nint(0));
         }
     }
 }
