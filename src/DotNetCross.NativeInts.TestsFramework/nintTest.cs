@@ -225,5 +225,24 @@ namespace DotNetCross.NativeInts.TestsFramework
             var ni = new nint(7);
             Assert.AreEqual(ni / 2, new nint(3));
         }
+
+        [TestMethod]
+        public void operator_Modulus_nint()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni % new nint(4), new nint(3));
+        }
+        [TestMethod]
+        public void operator_Modulus_IntPtr()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni % new IntPtr(4), new nint(3));
+        }
+        [TestMethod]
+        public void operator_Modulus_int()
+        {
+            var ni = new nint(7);
+            Assert.AreEqual(ni % 4, new nint(3));
+        }
     }
 }

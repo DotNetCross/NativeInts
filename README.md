@@ -44,9 +44,9 @@ to these methods.
 Boolean types, such as those used in database languages. 
 
 ### Binary Operators
-Table shows the types that can be used together with the type in header for a given binary operator.
-By default this if for the type on either left or right side of expression (binary operator).
-However, for `IntPtr`/`UIntPtr` an operator might only be available for a type at a specific side of the expression,
+The table below shows the types that can be used together with the type in header for a given binary operator.
+By default this is for the type on either left or right side of expression (binary operator).
+However, for some cases an operator might only be available for a type at a specific side of the expression,
 with `(R)` meaning "right only", `(L)` meaning "left only".
 
 |**Name**						|**C++ Operator Symbol**  |`IntPtr` C#   | `UIntPtr` C#   | `nint` C#      | `nuint` C#       |
@@ -55,7 +55,7 @@ with `(R)` meaning "right only", `(L)` meaning "left only".
 |op_Subtraction				    | - 					  |`int (R)`	  |`uint (R)`      |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
 |op_Multiply					| * 					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_Division 					| /						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
-|op_Modulus 					| %						  |
+|op_Modulus 					| %						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_ExclusiveOr 				| ^						  |
 |op_BitwiseAnd 					| & 					  |
 |op_BitwiseOr 					| |						  |
