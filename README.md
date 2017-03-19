@@ -62,42 +62,42 @@ However, for some cases an operator might only be available for a type at a spec
 with `(R)` meaning "right only", `(L)` meaning "left only".
 
 |**Name**						|**C++ Operator Symbol**  |`IntPtr` C#   | `UIntPtr` C#   | `nint` C#                | `nuint` C#       |
-|--|--|--|--|--|--|--|--|
-|op_Addition					| +                       |`int (R)`	  |`uint (R)`      |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
-|op_Subtraction				    | - 					  |`int (R)`	  |`uint (R)`      |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
+|--|--|--|--|--|--|--|
+|op_Addition					| +                       |`int (R)`	  |`int (R)`       |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
+|op_Subtraction				    | - 					  |`int (R)`	  |`int (R)`       |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
 |op_Multiply					| * 					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_Division 					| /						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_Modulus 					| %						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_ExclusiveOr 				| ^						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_BitwiseAnd 					| & 					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
-|op_BitwiseOr 					| \|						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
+|op_BitwiseOr 					| \|					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_LogicalAnd 					| &&					  |N/A            |N/A               |N/A                            |N/A                                | 
-|op_LogicalOr  					| ||					  |N/A            |N/A               |N/A                            |N/A                                | 
+|op_LogicalOr  					| \|\|					  |N/A            |N/A               |N/A                            |N/A                                | 
 |op_Assign  					| N/D (= is not the same) |N/A            |N/A               |N/A                            |N/A                                | 
 |op_LeftShift  					| <<					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_RightShift  				| >>					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
-|op_SignedRightShift  			| N/D					  |
-|op_UnsignedRightShift			| N/D					  |
-|op_Equality  					| ==					  |
-|op_GreaterThan  				| >						  |
-|op_LessThan  					| <						  |
-|op_Inequality  				| !=					  |
-|op_GreaterThanOrEqual			| >=					  |
-|op_LessThanOrEqual  			| <=					  |
-|op_UnsignedRightShiftAssignment| Not defined			  |
-|op_MemberSelection  			| ->					  |N/A (N/O C#)	  |
-|op_RightShiftAssignment  		| >>=					  |N/A (N/O C#)	  |
-|op_MultiplicationAssignment  	| \*=					  |N/A (N/O C#)	  |
-|op_PointerToMemberSelection  	| ->\*					  |N/A (N/O C#)	  |
-|op_SubtractionAssignment  		| -=					  |`int`    	  |			  
-|op_ExclusiveOrAssignment  		| ^=					  |N/A (N/O C#)	  |
-|op_LeftShiftAssignment  		| <<=					  |N/A (N/O C#)	  |
-|op_ModulusAssignment  			| %=					  |N/A (N/O C#)	  |
-|op_AdditionAssignment  		| +=					  |`int`    	  |			  
-|op_BitwiseAndAssignment  		| &=					  |N/A (N/O C#)	  |
-|op_BitwiseOrAssignment  		| \|=					  |N/A (N/O C#)	  |
-|op_Comma  						| ,						  |N/A (N/O C#)	  |
-|op_DivisionAssignment  		| /=					  |N/A (N/O C#)	  |
+|op_SignedRightShift  			| N/D					  |N/A            |N/A               |N/A                            |N/A                                | 
+|op_UnsignedRightShift			| N/D					  |N/A            |N/A               |N/A                            |N/A                                | 
+|op_Equality  					| ==					  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
+|op_GreaterThan  				| >						  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
+|op_LessThan  					| <						  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
+|op_Inequality  				| !=					  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
+|op_GreaterThanOrEqual			| >=					  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
+|op_LessThanOrEqual  			| <=					  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
+|op_UnsignedRightShiftAssignment| Not defined			  |N/A            |N/A               |N/A                            |N/A                                | 
+|op_MemberSelection  			| ->					  |N/A (N/O C#)	  |N/A (N/O C#)	     |N/A (N/O C#)	     |N/A (N/O C#)	     |
+|op_RightShiftAssignment  		| >>=					  |N/A (N/O C#)	  |N/A (N/O C#)	     |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint` TODO |
+|op_MultiplicationAssignment  	| \*=					  |N/A (N/O C#)	  |N/A (N/O C#)	     |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint` TODO |
+|op_PointerToMemberSelection  	| ->\*					  |N/A (N/O C#)	  |N/A (N/O C#)	     |N/A (N/O C#)	     |N/A (N/O C#)	     |
+|op_SubtractionAssignment  		| -=					  |`int`    	  |`int`            |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint` TODO |
+|op_ExclusiveOrAssignment  		| ^=					  |N/A (N/O C#)	  |N/A (N/O C#)	     |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint` TODO |
+|op_LeftShiftAssignment  		| <<=					  |N/A (N/O C#)	  |N/A (N/O C#)	     |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint` TODO |
+|op_ModulusAssignment  			| %=					  |N/A (N/O C#)	  |N/A (N/O C#)	     |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint` TODO |
+|op_AdditionAssignment  		| +=					  |`int`    	  |`int`            |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint` TODO |
+|op_BitwiseAndAssignment  		| &=					  |N/A (N/O C#)	  |N/A (N/O C#)	     |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint` TODO |
+|op_BitwiseOrAssignment  		| \|=					  |N/A (N/O C#)	  |N/A (N/O C#)	     |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint` TODO |
+|op_Comma  						| ,						  |N/A (N/O C#)	  |N/A (N/O C#)	     |N/A (N/O C#)	     |N/A (N/O C#)	     |
+|op_DivisionAssignment  		| /=					  |N/A (N/O C#)	  |N/A (N/O C#)	     |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint` TODO |
 
  * `N/A` = Not Available
  * `N/O` = Not Overloadable, but for assignment operators usably available via binary static operator e.g. `+=` is available via `+`.

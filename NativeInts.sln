@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts", "src\DotNetCross.NativeInts\DotNetCross.NativeInts.csproj", "{4AE5D1B8-DCA8-4943-BFEA-3596F093E61C}"
 EndProject
