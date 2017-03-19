@@ -70,7 +70,7 @@ with `(R)` meaning "right only", `(L)` meaning "left only".
 |op_Modulus 					| %						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_ExclusiveOr 				| ^						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_BitwiseAnd 					| & 					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
-|op_BitwiseOr 					| |						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
+|op_BitwiseOr 					| \|						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_LogicalAnd 					| &&					  |N/A            |N/A               |N/A                            |N/A                                | 
 |op_LogicalOr  					| ||					  |N/A            |N/A               |N/A                            |N/A                                | 
 |op_Assign  					| N/D (= is not the same) |N/A            |N/A               |N/A                            |N/A                                | 
@@ -95,7 +95,7 @@ with `(R)` meaning "right only", `(L)` meaning "left only".
 |op_ModulusAssignment  			| %=					  |N/A (N/O C#)	  |
 |op_AdditionAssignment  		| +=					  |`int`    	  |			  
 |op_BitwiseAndAssignment  		| &=					  |N/A (N/O C#)	  |
-|op_BitwiseOrAssignment  		| |=					  |N/A (N/O C#)	  |
+|op_BitwiseOrAssignment  		| \|=					  |N/A (N/O C#)	  |
 |op_Comma  						| ,						  |N/A (N/O C#)	  |
 |op_DivisionAssignment  		| /=					  |N/A (N/O C#)	  |
 
