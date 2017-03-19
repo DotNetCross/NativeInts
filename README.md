@@ -49,7 +49,7 @@ By default this is for the type on either left or right side of expression (bina
 However, for some cases an operator might only be available for a type at a specific side of the expression,
 with `(R)` meaning "right only", `(L)` meaning "left only".
 
-|**Name**						|**C++ Operator Symbol**  |`IntPtr` C#   | `UIntPtr` C#   | `nint` C#      | `nuint` C#       |
+|**Name**						|**C++ Operator Symbol**  |`IntPtr` C#   | `UIntPtr` C#   | `nint` C#                | `nuint` C#       |
 |--|--|--|--|--|--|--|--|
 |op_Addition					| +                       |`int (R)`	  |`uint (R)`      |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
 |op_Subtraction				    | - 					  |`int (R)`	  |`uint (R)`      |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |

@@ -166,5 +166,234 @@ namespace DotNetCross.NativeInts
             return Is32Bit ? new nint((int)l.Value >> r)
                            : new nint((long)l.Value >> r);
         }
+
+        public unsafe static bool operator ==(nint l, nint r)
+        {
+            return l.Value == r.Value;
+        }
+        public unsafe static bool operator ==(nint l, int r)
+        {
+            return Is32Bit ? (int)l.Value == r
+                           : (long)l.Value == r;
+        }
+        public unsafe static bool operator ==(int l, nint r)
+        {
+            return Is32Bit ? l == (int)r.Value
+                           : l == (long)r.Value;
+        }
+        public unsafe static bool operator ==(nint l, long r)
+        {
+            return Is32Bit ? (int)l.Value == r
+                           : (long)l.Value == r;
+        }
+        public unsafe static bool operator ==(long l, nint r)
+        {
+            return Is32Bit ? l == (int)r.Value
+                           : l == (long)r.Value;
+        }
+        public unsafe static bool operator ==(nint l, IntPtr r)
+        {
+            return l.Value == r;
+        }
+        public unsafe static bool operator ==(IntPtr l, nint r)
+        {
+            return l == r.Value;
+        }
+
+        public unsafe static bool operator !=(nint l, nint r)
+        {
+            return l.Value != r.Value;
+        }
+        public unsafe static bool operator !=(nint l, int r)
+        {
+            return Is32Bit ? (int)l.Value != r
+                           : (long)l.Value != r;
+        }
+        public unsafe static bool operator !=(int l, nint r)
+        {
+            return Is32Bit ? l != (int)r.Value
+                           : l != (long)r.Value;
+        }
+        public unsafe static bool operator !=(nint l, long r)
+        {
+            return Is32Bit ? (int)l.Value != r
+                           : (long)l.Value != r;
+        }
+        public unsafe static bool operator !=(long l, nint r)
+        {
+            return Is32Bit ? l != (int)r.Value
+                           : l != (long)r.Value;
+        }
+        public unsafe static bool operator !=(nint l, IntPtr r)
+        {
+            return l.Value != r;
+        }
+        public unsafe static bool operator !=(IntPtr l, nint r)
+        {
+            return l != r.Value;
+        }
+
+        public unsafe static bool operator >(nint l, nint r)
+        {
+            return Is32Bit ? (int)l.Value > (int)r.Value
+                           : (long)l.Value > (long)r.Value;
+        }
+        public unsafe static bool operator >(nint l, int r)
+        {
+            return Is32Bit ? (int)l.Value > r
+                           : (long)l.Value > r;
+        }
+        public unsafe static bool operator >(int l, nint r)
+        {
+            return Is32Bit ? l > (int)r.Value
+                           : l > (long)r.Value;
+        }
+        public unsafe static bool operator >(nint l, long r)
+        {
+            return Is32Bit ? (int)l.Value > r
+                           : (long)l.Value > r;
+        }
+        public unsafe static bool operator >(long l, nint r)
+        {
+            return Is32Bit ? l > (int)r.Value
+                           : l > (long)r.Value;
+        }
+        public unsafe static bool operator >(nint l, IntPtr r)
+        {
+            return Is32Bit ? (int)l.Value > (int)r
+                           : (long)l.Value > (long)r;
+        }
+        public unsafe static bool operator >(IntPtr l, nint r)
+        {
+            return Is32Bit ? (int)l > (int)r.Value
+                           : (long)l > (long)r.Value;
+        }
+
+        public unsafe static bool operator <(nint l, nint r)
+        {
+            return Is32Bit ? (int)l.Value < (int)r.Value
+                           : (long)l.Value < (long)r.Value;
+        }
+        public unsafe static bool operator <(nint l, int r)
+        {
+            return Is32Bit ? (int)l.Value < r
+                           : (long)l.Value < r;
+        }
+        public unsafe static bool operator <(int l, nint r)
+        {
+            return Is32Bit ? l < (int)r.Value
+                           : l < (long)r.Value;
+        }
+        public unsafe static bool operator <(nint l, long r)
+        {
+            return Is32Bit ? (int)l.Value < r
+                           : (long)l.Value < r;
+        }
+        public unsafe static bool operator <(long l, nint r)
+        {
+            return Is32Bit ? l < (int)r.Value
+                           : l < (long)r.Value;
+        }
+        public unsafe static bool operator <(nint l, IntPtr r)
+        {
+            return Is32Bit ? (int)l.Value < (int)r
+                           : (long)l.Value < (long)r;
+        }
+        public unsafe static bool operator <(IntPtr l, nint r)
+        {
+            return Is32Bit ? (int)l < (int)r.Value
+                           : (long)l < (long)r.Value;
+        }
+
+        public unsafe static bool operator >=(nint l, nint r)
+        {
+            return Is32Bit ? (int)l.Value >= (int)r.Value
+                           : (long)l.Value >= (long)r.Value;
+        }
+        public unsafe static bool operator >=(nint l, int r)
+        {
+            return Is32Bit ? (int)l.Value >= r
+                           : (long)l.Value >= r;
+        }
+        public unsafe static bool operator >=(int l, nint r)
+        {
+            return Is32Bit ? l >= (int)r.Value
+                           : l >= (long)r.Value;
+        }
+        public unsafe static bool operator >=(nint l, long r)
+        {
+            return Is32Bit ? (int)l.Value >= r
+                           : (long)l.Value >= r;
+        }
+        public unsafe static bool operator >=(long l, nint r)
+        {
+            return Is32Bit ? l >= (int)r.Value
+                           : l >= (long)r.Value;
+        }
+        public unsafe static bool operator >=(nint l, IntPtr r)
+        {
+            return Is32Bit ? (int)l.Value >= (int)r
+                           : (long)l.Value >= (long)r;
+        }
+        public unsafe static bool operator >=(IntPtr l, nint r)
+        {
+            return Is32Bit ? (int)l >= (int)r.Value
+                           : (long)l >= (long)r.Value;
+        }
+
+        public unsafe static bool operator <=(nint l, nint r)
+        {
+            return Is32Bit ? (int)l.Value <= (int)r.Value
+                           : (long)l.Value <= (long)r.Value;
+        }
+        public unsafe static bool operator <=(nint l, int r)
+        {
+            return Is32Bit ? (int)l.Value <= r
+                           : (long)l.Value <= r;
+        }
+        public unsafe static bool operator <=(int l, nint r)
+        {
+            return Is32Bit ? l <= (int)r.Value
+                           : l <= (long)r.Value;
+        }
+        public unsafe static bool operator <=(nint l, long r)
+        {
+            return Is32Bit ? (int)l.Value <= r
+                           : (long)l.Value <= r;
+        }
+        public unsafe static bool operator <=(long l, nint r)
+        {
+            return Is32Bit ? l <= (int)r.Value
+                           : l <= (long)r.Value;
+        }
+        public unsafe static bool operator <=(nint l, IntPtr r)
+        {
+            return Is32Bit ? (int)l.Value <= (int)r
+                           : (long)l.Value <= (long)r;
+        }
+        public unsafe static bool operator <=(IntPtr l, nint r)
+        {
+            return Is32Bit ? (int)l <= (int)r.Value
+                           : (long)l <= (long)r.Value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is nint)
+            {
+                return (Value == ((nint)obj).Value);
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Value.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
     }
 }
