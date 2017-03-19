@@ -65,7 +65,7 @@ with `(R)` meaning "right only", `(L)` meaning "left only".
 |--|--|--|--|--|--|--|
 |op_Addition					| +                       |`int (R)`	  |`int (R)`       |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
 |op_Subtraction				    | - 					  |`int (R)`	  |`int (R)`       |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
-|op_Multiply					| * 					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
+|op_Multiply					| \* 					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_Division 					| /						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_Modulus 					| %						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_ExclusiveOr 				| ^						  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
