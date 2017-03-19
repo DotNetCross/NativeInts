@@ -158,5 +158,20 @@ namespace DotNetCross.NativeInts.Tests
             //var ip = new IntPtr(7);
             //Assert.Equal(ip / 2, new IntPtr(3));
         }
+
+        [Fact]
+        public void operator_AdditionAssignment()
+        {
+            var ip = new IntPtr(7);
+            ip += 1;
+            Assert.Equal(ip, new IntPtr(8));
+        }
+        [Fact]
+        public void operator_SubtractionAssignment()
+        {
+            var ip = new IntPtr(7);
+            ip -= 1;
+            Assert.Equal(ip, new IntPtr(6));
+        }
     }
 }

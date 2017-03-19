@@ -377,6 +377,12 @@ namespace DotNetCross.NativeInts
                            : (long)l <= (long)r.Value;
         }
 
+        // <<= cannot be overloaded directly in C#
+
+        // >>= cannot be overloaded directly in C#
+
+        
+
         public override bool Equals(object obj)
         {
             if (obj is nint)

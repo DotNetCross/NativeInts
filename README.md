@@ -3,7 +3,10 @@ Straightforward `nint` and `nuint` native integers, written in IL, probably seco
 Fully functional.
 
 ## Comparing `IntPtr`/`UIntPtr` vs `nint`/`nuint`
-Based on "I.10.3 Operator overloading" section from the ECMA.
+Based on:
+ * **I.10.3 Operator overloading** section from the ECMA 
+ * [Operator Overloads](https://msdn.microsoft.com/en-us/library/ms229032.aspx)
+ * [Overloadable Operators (C# Programming Guide)](https://msdn.microsoft.com/en-us/library/8edha89s.aspx)
 
 ### Conversions
 Besides supporting implicit conversion for:
@@ -82,19 +85,22 @@ with `(R)` meaning "right only", `(L)` meaning "left only".
 |op_GreaterThanOrEqual			| >=					  |
 |op_LessThanOrEqual  			| <=					  |
 |op_UnsignedRightShiftAssignment| Not defined			  |
-|op_MemberSelection  			| ->					  |
-|op_RightShiftAssignment  		| >>=					  |
-|op_MultiplicationAssignment  	| \*=					  |
-|op_PointerToMemberSelection  	| ->\*					  |
-|op_SubtractionAssignment  		| -=					  |
-|op_ExclusiveOrAssignment  		| ^=					  |
-|op_LeftShiftAssignment  		| <<=					  |
-|op_ModulusAssignment  			| %=					  |
-|op_AdditionAssignment  		| +=					  |
-|op_BitwiseAndAssignment  		| &=					  |
-|op_BitwiseOrAssignment  		| |=					  |
-|op_Comma  						| ,						  |
-|op_DivisionAssignment  		| /=					  |
+|op_MemberSelection  			| ->					  |N/A (N/O C#)	  |
+|op_RightShiftAssignment  		| >>=					  |N/A (N/O C#)	  |
+|op_MultiplicationAssignment  	| \*=					  |N/A (N/O C#)	  |
+|op_PointerToMemberSelection  	| ->\*					  |N/A (N/O C#)	  |
+|op_SubtractionAssignment  		| -=					  |`int`    	  |			  
+|op_ExclusiveOrAssignment  		| ^=					  |N/A (N/O C#)	  |
+|op_LeftShiftAssignment  		| <<=					  |N/A (N/O C#)	  |
+|op_ModulusAssignment  			| %=					  |N/A (N/O C#)	  |
+|op_AdditionAssignment  		| +=					  |`int`    	  |			  
+|op_BitwiseAndAssignment  		| &=					  |N/A (N/O C#)	  |
+|op_BitwiseOrAssignment  		| |=					  |N/A (N/O C#)	  |
+|op_Comma  						| ,						  |N/A (N/O C#)	  |
+|op_DivisionAssignment  		| /=					  |N/A (N/O C#)	  |
+
+ * `N/A` = Not Available
+ * `N/O` = Not Overloadable, but for assignment operators usably available via binary static operator e.g. `+=` is available via `+`.
 
 ### Object Methods
 The following methods have the same or forward to the equivalent `IntPtr`/`UIntPtr` implementation.
