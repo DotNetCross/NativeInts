@@ -126,3 +126,11 @@ with `(R)` meaning "right only", `(L)` meaning "left only".
     // op_Comma ,
     // op_DivisionAssignment /=
 
+### Object Methods
+The following methods have the same or forward to the equivalent `IntPtr`/`UIntPtr` implementation.
+
+```csharp
+public override bool Equals(object obj)
+public override int GetHashCode()
+public override string ToString()
+```
