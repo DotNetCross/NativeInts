@@ -62,7 +62,7 @@ However, for some cases an operator might only be available for a type at a spec
 with `(R)` meaning "right only", `(L)` meaning "left only".
 
 |**Name**						|**C++ Operator Symbol**  |`IntPtr` C#   | `UIntPtr` C#   | `nint` C#                | `nuint` C#       |
-|--|--|--|--|--|--|--|
+|-------------------|-------------------------|--------------|----------------|--------------------------|------------------|
 |op_Addition					| +                       |`int (R)`	  |`int (R)`       |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
 |op_Subtraction				    | - 					  |`int (R)`	  |`int (R)`       |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint`  |
 |op_Multiply					| \* 					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
@@ -76,14 +76,14 @@ with `(R)` meaning "right only", `(L)` meaning "left only".
 |op_Assign  					| N/D (= is not the same) |N/A            |N/A               |N/A                            |N/A                                | 
 |op_LeftShift  					| <<					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
 |op_RightShift  				| >>					  |N/A      	  |N/A               |`nint`, `IntPtr`, `int (R)` |`nuint`, `UIntPtr`, `uint (R)` |
-|op_SignedRightShift  			| N/D					  |N/A            |N/A               |N/A                            |N/A                                | 
+|op_SignedRightShift  			| N/D					  |N/A            |N/A               |N/A                            |N/A                               | 
 |op_UnsignedRightShift			| N/D					  |N/A            |N/A               |N/A                            |N/A                                | 
 |op_Equality  					| ==					  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
 |op_GreaterThan  				| >						  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
 |op_LessThan  					| <						  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
 |op_Inequality  				| !=					  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
 |op_GreaterThanOrEqual			| >=					  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
-|op_LessThanOrEqual  			| <=					  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
+|op_LessThanOrEqual  			| \<=					  |`IntPtr`	  |`UIntPtr`        |`nint`, `IntPtr`, `int`, `long` |`nuint`, `UIntPtr`, `uint`, `ulong`  |
 |op_UnsignedRightShiftAssignment| Not defined			  |N/A            |N/A               |N/A                            |N/A                                | 
 |op_MemberSelection  			| ->					  |N/A (N/O C#)	  |N/A (N/O C#)	     |N/A (N/O C#)	     |N/A (N/O C#)	     |
 |op_RightShiftAssignment  		| >>=					  |N/A (N/O C#)	  |N/A (N/O C#)	     |`nint`, `IntPtr`, `int` |`nuint`, `UIntPtr`, `uint` TODO |
