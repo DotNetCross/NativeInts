@@ -6,17 +6,26 @@ Fully functional.
 Based on "I.10.3 Operator overloading" section from the ECMA.
 
 ### Conversions
-    //
+Besides supporting implicit conversion for:
+
+ * `IntPtr` to/from `nint`
+ * `UIntPtr` to/from `nuint`
+
+The following conversions are supported compared to available conversions for `IntPtr`/`UIntPtr`:
 
 |**Name**               |**From** |`IntPtr` C# | `UIntPtr` C# | `nint` C# | `nuint` C# |
 |--|--|--|--|--|--|
-|op_Implicit            |         |
-|op_Exlicit             |         |
+|op_Implicit            |`int`   |N/A         |N/A           |Yes        |N/A         |
+|op_Implicit            |`uint`  |N/A         |N/A           |N/A        |Yes         |
+|op_Explicit            |`long`  |N/A         |N/A           |Yes        |N/A         |
+|op_Explicit            |`ulong` |N/A         |N/A           |N/A        |Yes         |
 
 |**Name**               |**To**   |`IntPtr` C# | `UIntPtr` C# | `nint` C# | `nuint` C# |
 |--|--|--|--|--|--|
-|op_Implicit            |         |
-|op_Exlicit             |         |
+|op_Implicit            |`long`  |N/A         |N/A           |Yes        |N/A         |
+|op_Implicit            |`ulong` |N/A         |N/A           |N/A        |Yes         |
+|op_Explicit            |`int`   |N/A         |N/A           |Yes        |N/A         |
+|op_Explicit            |`uint`  |N/A         |N/A           |N/A        |Yes         |
 
 
 ### Unary Operators
@@ -86,45 +95,6 @@ with `(R)` meaning "right only", `(L)` meaning "left only".
 |op_BitwiseOrAssignment  		| |=					  |
 |op_Comma  						| ,						  |
 |op_DivisionAssignment  		| /=					  |
-
-    // 
-    // Binary
-    // 
-    // op_Addition + (binary)
-    // op_Subtraction - (binary)
-    // op_Multiply * (binary)
-    // op_Division /
-    // op_Modulus %
-    // op_ExclusiveOr ^
-    // op_BitwiseAnd & (binary)
-    // op_BitwiseOr |
-    // op_LogicalAnd &&
-    // op_LogicalOr ||
-    // op_Assign Not defined (= is not the same)
-    // op_LeftShift <<
-    // op_RightShift >>
-    // op_SignedRightShift Not defined
-    // op_UnsignedRightShift Not defined
-    // op_Equality ==
-    // op_GreaterThan >
-    // op_LessThan <
-    // op_Inequality !=
-    // op_GreaterThanOrEqual >=
-    // op_LessThanOrEqual <=
-    // op_UnsignedRightShiftAssignment Not defined
-    // op_MemberSelection ->
-    // op_RightShiftAssignment >>=
-    // op_MultiplicationAssignment *=
-    // op_PointerToMemberSelection ->*
-    // op_SubtractionAssignment -=
-    // op_ExclusiveOrAssignment ^=
-    // op_LeftShiftAssignment <<=
-    // op_ModulusAssignment %=
-    // op_AdditionAssignment +=
-    // op_BitwiseAndAssignment &=
-    // op_BitwiseOrAssignment |=
-    // op_Comma ,
-    // op_DivisionAssignment /=
 
 ### Object Methods
 The following methods have the same or forward to the equivalent `IntPtr`/`UIntPtr` implementation.
