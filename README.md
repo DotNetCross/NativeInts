@@ -59,7 +59,7 @@ Boolean types, such as those used in database languages.
 The table below shows the types that can be used together with the type in header for a given binary operator.
 By default this is for the type on either left or right side of expression (binary operator).
 However, for some cases an operator might only be available for a type at a specific side of the expression,
-with `(R)` meaning "right only", `(L)` meaning "left only".
+with `(R)` meaning "right only".
 
 |**Name**						|**C++ Operator Symbol**  |`IntPtr` C#   | `UIntPtr` C#   | `nint` C#                | `nuint` C#       |
 |-------------------|-------------------------|--------------|----------------|--------------------------|------------------|
