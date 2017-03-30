@@ -14,8 +14,9 @@ Besides supporting implicit conversion for:
  * `IntPtr` to/from `nint`
  * `UIntPtr` to/from `nuint`
 
-The following conversions are supported compared to available conversions for `IntPtr`/`UIntPtr`:
+The following conversions are supported compared to available conversions for `IntPtr`/`UIntPtr`.
 
+#### From a Primitive Type
 |**Name**               |**From** |`IntPtr` C# | `UIntPtr` C# | `nint` C# | `nuint` C# |
 |--|--|--|--|--|--|
 |op_Implicit            |`int`   |N/A         |N/A           |Yes        |N/A         |
@@ -23,6 +24,7 @@ The following conversions are supported compared to available conversions for `I
 |op_Explicit            |`long`  |N/A         |N/A           |Yes        |N/A         |
 |op_Explicit            |`ulong` |N/A         |N/A           |N/A        |Yes         |
 
+#### To a Primitive Type
 |**Name**               |**To**   |`IntPtr` C# | `UIntPtr` C# | `nint` C# | `nuint` C# |
 |--|--|--|--|--|--|
 |op_Implicit            |`long`  |N/A         |N/A           |Yes        |N/A         |
