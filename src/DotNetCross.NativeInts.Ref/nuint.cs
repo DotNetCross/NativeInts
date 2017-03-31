@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotNetCross.NativeUInts
+namespace DotNetCross.NativeInts
 {
     public struct nuint
     {
