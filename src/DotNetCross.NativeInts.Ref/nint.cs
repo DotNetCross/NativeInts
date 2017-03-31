@@ -4,12 +4,6 @@ namespace DotNetCross.NativeInts
 {
     public struct nint
     {
-        private static readonly bool Is32Bit = CheckIs32Bit();
-        private static unsafe bool CheckIs32Bit()
-        {
-            return sizeof(IntPtr) == sizeof(int);
-        }
-
         public IntPtr Value;
 
         public nint(IntPtr value)
@@ -380,9 +374,7 @@ namespace DotNetCross.NativeInts
         // <<= cannot be overloaded directly in C#
 
         // >>= cannot be overloaded directly in C#
-
         
-
         public override bool Equals(object obj)
         {
             if (obj is nint)
@@ -400,6 +392,12 @@ namespace DotNetCross.NativeInts
         public override string ToString()
         {
             return Value.ToString();
+        }
+
+        private static readonly bool Is32Bit = CheckIs32Bit();
+        private static unsafe bool CheckIs32Bit()
+        {
+            return sizeof(IntPtr) == sizeof(int);
         }
     }
 }
