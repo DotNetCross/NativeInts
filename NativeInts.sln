@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{18128D4D-3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts.Ref", "src\DotNetCross.NativeInts.Ref\DotNetCross.NativeInts.Ref.csproj", "{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts.TestsFramework", "src\DotNetCross.NativeInts.TestsFramework\DotNetCross.NativeInts.TestsFramework.csproj", "{DC21D6BA-DA0E-4C4A-9BE0-AB8075EEA68D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts.Tests", "src\DotNetCross.NativeInts.Tests\DotNetCross.NativeInts.Tests.csproj", "{DC21D6BA-DA0E-4C4A-9BE0-AB8075EEA68D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
