@@ -50,8 +50,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IntPtrTest.cs" />
     <Compile Include="nintTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIntPtrTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNetCross.NativeInts\DotNetCross.NativeInts.csproj">

@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26228.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts", "src\DotNetCross.NativeInts\DotNetCross.NativeInts.csproj", "{4AE5D1B8-DCA8-4943-BFEA-3596F093E61C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts.Tests", "src\DotNetCross.NativeInts.Tests\DotNetCross.NativeInts.Tests.csproj", "{5396D38A-EE91-4929-8D51-32004E597CCF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{18128D4D-3526-4A0A-8F78-DB65BE75C063}"
 	ProjectSection(SolutionItems) = preProject
@@ -20,8 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{18128D4D-3
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts.Ref", "src\DotNetCross.NativeInts.Ref\DotNetCross.NativeInts.Ref.csproj", "{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCross.NativeInts.TestsNew", "src\DotNetCross.NativeInts.TestsNew\DotNetCross.NativeInts.TestsNew.csproj", "{34CF5079-BE06-45E2-B2FF-0E75595C78A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts.TestsFramework", "src\DotNetCross.NativeInts.TestsFramework\DotNetCross.NativeInts.TestsFramework.csproj", "{DC21D6BA-DA0E-4C4A-9BE0-AB8075EEA68D}"
 EndProject
@@ -47,18 +43,6 @@ Global
 		{4AE5D1B8-DCA8-4943-BFEA-3596F093E61C}.Release|x64.Build.0 = Release|Any CPU
 		{4AE5D1B8-DCA8-4943-BFEA-3596F093E61C}.Release|x86.ActiveCfg = Release|Any CPU
 		{4AE5D1B8-DCA8-4943-BFEA-3596F093E61C}.Release|x86.Build.0 = Release|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Debug|x64.Build.0 = Debug|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Debug|x86.Build.0 = Debug|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Release|x64.ActiveCfg = Release|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Release|x64.Build.0 = Release|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Release|x86.ActiveCfg = Release|Any CPU
-		{5396D38A-EE91-4929-8D51-32004E597CCF}.Release|x86.Build.0 = Release|Any CPU
 		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -71,18 +55,6 @@ Global
 		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Release|x64.Build.0 = Release|Any CPU
 		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Release|x86.ActiveCfg = Release|Any CPU
 		{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}.Release|x86.Build.0 = Release|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Debug|x64.Build.0 = Debug|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Debug|x86.Build.0 = Debug|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Release|x64.ActiveCfg = Release|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Release|x64.Build.0 = Release|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Release|x86.ActiveCfg = Release|Any CPU
-		{34CF5079-BE06-45E2-B2FF-0E75595C78A4}.Release|x86.Build.0 = Release|Any CPU
 		{DC21D6BA-DA0E-4C4A-9BE0-AB8075EEA68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC21D6BA-DA0E-4C4A-9BE0-AB8075EEA68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC21D6BA-DA0E-4C4A-9BE0-AB8075EEA68D}.Debug|x64.ActiveCfg = Debug|Any CPU
