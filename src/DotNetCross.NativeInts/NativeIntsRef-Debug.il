@@ -47,19 +47,21 @@
   .ver 0:1:0:0
 }
 .module DotNetCross.NativeInts.dll
-// MVID: {9507F00C-2FF6-4755-A0F6-F1FE91D1BB17}
+// MVID: {272067A6-1C62-4209-9FBC-9AB89F1CE6B2}
 .imagebase 0x10000000
 .file alignment 0x00000200
 .stackreserve 0x00100000
 .subsystem 0x0003       // WINDOWS_CUI
 .corflags 0x00000001    //  ILONLY
-// Image base: 0x01680000
+// Image base: 0x04F40000
 
 
 // =============== CLASS MEMBERS DECLARATION ===================
 
 .class public sequential ansi sealed beforefieldinit DotNetCross.NativeInts.nint
        extends [System.Runtime]System.ValueType
+       implements class [System.Runtime]System.IEquatable`1<valuetype DotNetCross.NativeInts.nint>,
+                  class [System.Runtime]System.IComparable`1<valuetype DotNetCross.NativeInts.nint>
 {
   .field public native int Value
   .field private static initonly bool Is32Bit
@@ -2342,6 +2344,58 @@
     IL_000d:  ldloc.0
     IL_000e:  ret
   } // end of method nint::CheckIs32Bit
+
+  .method public hidebysig newslot virtual final 
+          instance bool  Equals(valuetype DotNetCross.NativeInts.nint other) cil managed
+  {
+    // Code size       13 (0xd)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldobj      DotNetCross.NativeInts.nint
+    IL_0006:  ldarg.1
+    IL_0007:  call       bool DotNetCross.NativeInts.nint::op_Equality(valuetype DotNetCross.NativeInts.nint,
+                                                                       valuetype DotNetCross.NativeInts.nint)
+    IL_000c:  ret
+  } // end of method nint::Equals
+
+  .method public hidebysig newslot virtual final 
+          instance int32  CompareTo(valuetype DotNetCross.NativeInts.nint other) cil managed
+  {
+    // Code size       75 (0x4b)
+    .maxstack  2
+    .locals init (int64 V_0,
+             int32 V_1,
+             int32 V_2)
+    IL_0000:  nop
+    IL_0001:  ldsfld     bool DotNetCross.NativeInts.nint::Is32Bit
+    IL_0006:  brtrue.s   IL_0028
+
+    IL_0008:  ldarg.0
+    IL_0009:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_000e:  call       int64 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_0013:  stloc.0
+    IL_0014:  ldloca.s   V_0
+    IL_0016:  ldarg.1
+    IL_0017:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_001c:  call       int64 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_0021:  call       instance int32 [System.Runtime]System.Int64::CompareTo(int64)
+    IL_0026:  br.s       IL_0046
+
+    IL_0028:  ldarg.0
+    IL_0029:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_002e:  call       int32 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_0033:  stloc.1
+    IL_0034:  ldloca.s   V_1
+    IL_0036:  ldarg.1
+    IL_0037:  ldfld      native int DotNetCross.NativeInts.nint::Value
+    IL_003c:  call       int32 [System.Runtime]System.IntPtr::op_Explicit(native int)
+    IL_0041:  call       instance int32 [System.Runtime]System.Int32::CompareTo(int32)
+    IL_0046:  stloc.2
+    IL_0047:  br.s       IL_0049
+
+    IL_0049:  ldloc.2
+    IL_004a:  ret
+  } // end of method nint::CompareTo
 
   .method private hidebysig specialname rtspecialname static 
           void  .cctor() cil managed

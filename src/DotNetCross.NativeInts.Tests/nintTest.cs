@@ -1335,5 +1335,25 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.AreEqual(sizeof(long) == sizeof(IntPtr), (long)int.MaxValue <= (nint)(long.MaxValue));
             Assert.AreEqual(sizeof(long) == sizeof(IntPtr), (long)int.MaxValue <= (nint)(long.MaxValue));
         }
+
+        [TestMethod]
+        public void operator_Equals_nint()
+        {
+            Assert.IsTrue(nint.Zero.Equals(new nint(0)));
+            Assert.IsTrue(new nint(-1).Equals(new nint(-1)));
+            Assert.IsTrue(new nint(0).Equals(new nint(0)));
+            Assert.IsTrue(new nint(1).Equals(new nint(1)));
+            Assert.IsTrue(new nint(int.MaxValue).Equals(new nint(int.MaxValue)));
+            Assert.IsTrue(((nint)(long.MaxValue)).Equals((nint)(long.MaxValue)));
+
+            Assert.IsFalse(new nint(-2).Equals(new nint(-1)));
+            Assert.IsFalse(new nint(-1).Equals(new nint(-2)));
+            Assert.IsFalse(new nint(-1).Equals(new nint(0)));
+            Assert.IsFalse(new nint(0).Equals(new nint(-1)));
+            Assert.IsFalse(new nint(0).Equals(new nint(1)));
+            Assert.IsFalse(new nint(1).Equals(new nint(0)));
+            Assert.IsFalse(new nint(1).Equals(new nint(2)));
+            Assert.IsFalse(new nint(2).Equals(new nint(1)));
+        }
     }
 }
