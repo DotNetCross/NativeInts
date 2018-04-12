@@ -1155,6 +1155,7 @@
 //  IL_000d:  ret
 //  IL_000e:  ldc.i4.0
 //  IL_000f:  ret
+    // TODO: Perhaps this can be optimized to not use "ldfld" or something
     // Code size       16 (0x10)
     .maxstack  8
     IL_0000:  ldarg.0
@@ -1173,37 +1174,7 @@
     IL_000d:  ret
     IL_000e:  ldc.i4.0
     IL_000f:  ret
-
-//    // Code size       69 (0x45)
-//    .maxstack  2
-//    .locals init (int64 V_0,
-//                int32 V_1)
-//    IL_0000:  ldsfld     bool DotNetCross.NativeInts.nint::Is32Bit
-//    IL_0005:  brtrue.s   IL_0026
-//
-//    IL_0007:  ldarg.0
-//    IL_0008:  ldfld      native int DotNetCross.NativeInts.nint::Value
-//    IL_000d:  call       int64 [System.Runtime]System.IntPtr::op_Explicit(native int)
-//    IL_0012:  stloc.0
-//    IL_0013:  ldloca.s   V_0
-//    IL_0015:  ldarg.1
-//    IL_0016:  ldfld      native int DotNetCross.NativeInts.nint::Value
-//    IL_001b:  call       int64 [System.Runtime]System.IntPtr::op_Explicit(native int)
-//    IL_0020:  call       instance int32 [System.Runtime]System.Int64::CompareTo(int64)
-//    IL_0025:  ret
-//
-//    IL_0026:  ldarg.0
-//    IL_0027:  ldfld      native int DotNetCross.NativeInts.nint::Value
-//    IL_002c:  call       int32 [System.Runtime]System.IntPtr::op_Explicit(native int)
-//    IL_0031:  stloc.1
-//    IL_0032:  ldloca.s   V_1
-//    IL_0034:  ldarg.1
-//    IL_0035:  ldfld      native int DotNetCross.NativeInts.nint::Value
-//    IL_003a:  call       int32 [System.Runtime]System.IntPtr::op_Explicit(native int)
-//    IL_003f:  call       instance int32 [System.Runtime]System.Int32::CompareTo(int32)
-//    IL_0044:  ret
     } // end of method nint::CompareTo
-
 
     .method public hidebysig virtual instance bool 
             Equals(object obj) cil managed

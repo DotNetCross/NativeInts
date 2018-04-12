@@ -1355,5 +1355,26 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsFalse(new nint(1).Equals(new nint(2)));
             Assert.IsFalse(new nint(2).Equals(new nint(1)));
         }
+
+        [TestMethod]
+        public void operator_CompareTo_nint()
+        {
+            Assert.AreEqual(0, nint.Zero.CompareTo(new nint(0)));
+            Assert.AreEqual(0, new nint(-1).CompareTo(new nint(-1)));
+            Assert.AreEqual(0, new nint(0).CompareTo(new nint(0)));
+            Assert.AreEqual(0, new nint(1).CompareTo(new nint(1)));
+            Assert.AreEqual(0, new nint(int.MaxValue).CompareTo(new nint(int.MaxValue)));
+            Assert.AreEqual(0, ((nint)(long.MaxValue)).CompareTo((nint)(long.MaxValue)));
+
+            Assert.AreEqual(-1,new nint(-2).CompareTo(new nint(-1)));
+            Assert.AreEqual(-1,new nint(-1).CompareTo(new nint(0)));
+            Assert.AreEqual(-1,new nint(0).CompareTo(new nint(1)));
+            Assert.AreEqual(-1,new nint(1).CompareTo(new nint(2)));
+
+            Assert.AreEqual(1, new nint(-1).CompareTo(new nint(-2)));
+            Assert.AreEqual(1, new nint(0).CompareTo(new nint(-1)));
+            Assert.AreEqual(1, new nint(1).CompareTo(new nint(0)));
+            Assert.AreEqual(1,new nint(2).CompareTo(new nint(1)));
+        }
     }
 }
