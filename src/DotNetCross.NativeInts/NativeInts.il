@@ -49,9 +49,13 @@
 .corflags 0x00000001    //  ILONLY
 // Image base: 0x01090000
 
-
+// ============================================================================
+//
+// nint
+//
 // Disassemble IntPtr in System for inspiration
-
+//
+// ============================================================================
 .class public sequential ansi sealed serializable beforefieldinit DotNetCross.NativeInts.nint extends [System.Runtime]System.ValueType
 // implements System.Runtime.Serialization.ISerializable
 {
