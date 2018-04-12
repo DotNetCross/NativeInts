@@ -1401,5 +1401,24 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsFalse(new nint(0).Equals((object)""));
             Assert.IsFalse(new nint(0).Equals((object)"test"));
         }
+
+        [TestMethod]
+        public void GetHashCode_nint()
+        {
+            Assert.AreEqual(-5, new nint(-5).GetHashCode());
+            Assert.AreEqual(-4, new nint(-4).GetHashCode());
+            Assert.AreEqual(-3, new nint(-3).GetHashCode());
+            Assert.AreEqual(-2, new nint(-2).GetHashCode());
+            Assert.AreEqual(-1, new nint(-1).GetHashCode());
+            Assert.AreEqual(0, new nint(0).GetHashCode());
+            Assert.AreEqual(1, new nint(1).GetHashCode());
+            Assert.AreEqual(2, new nint(2).GetHashCode());
+            Assert.AreEqual(3, new nint(3).GetHashCode());
+            Assert.AreEqual(4, new nint(4).GetHashCode());
+            Assert.AreEqual(5, new nint(5).GetHashCode());
+
+            Assert.AreEqual(int.MinValue, (nint)long.MaxValue.GetHashCode());
+            Assert.AreEqual(int.MinValue, (nint)long.MinValue.GetHashCode());
+        }
     }
-}
+    }
