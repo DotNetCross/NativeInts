@@ -1337,7 +1337,7 @@ namespace DotNetCross.NativeInts.TestsFramework
         }
 
         [TestMethod]
-        public void operator_Equals_nint()
+        public void Equals_nint()
         {
             Assert.IsTrue(nint.Zero.Equals(new nint(0)));
             Assert.IsTrue(new nint(-1).Equals(new nint(-1)));
@@ -1357,7 +1357,7 @@ namespace DotNetCross.NativeInts.TestsFramework
         }
 
         [TestMethod]
-        public void operator_CompareTo_nint()
+        public void CompareTo_nint()
         {
             Assert.AreEqual(0, nint.Zero.CompareTo(new nint(0)));
             Assert.AreEqual(0, new nint(-1).CompareTo(new nint(-1)));
@@ -1375,6 +1375,31 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.AreEqual(1, new nint(0).CompareTo(new nint(-1)));
             Assert.AreEqual(1, new nint(1).CompareTo(new nint(0)));
             Assert.AreEqual(1,new nint(2).CompareTo(new nint(1)));
+        }
+
+        [TestMethod]
+        public void Equals_object_nint()
+        {
+            Assert.IsTrue(nint.Zero.Equals((object)new nint(0)));
+            Assert.IsTrue(new nint(-1).Equals((object)new nint(-1)));
+            Assert.IsTrue(new nint(0).Equals((object)new nint(0)));
+            Assert.IsTrue(new nint(1).Equals((object)new nint(1)));
+            Assert.IsTrue(new nint(int.MaxValue).Equals((object)new nint(int.MaxValue)));
+            Assert.IsTrue(((nint)(long.MaxValue)).Equals((object)(nint)(long.MaxValue)));
+
+            Assert.IsFalse(new nint(-2).Equals((object)new nint(-1)));
+            Assert.IsFalse(new nint(-1).Equals((object)new nint(-2)));
+            Assert.IsFalse(new nint(-1).Equals((object)new nint(0)));
+            Assert.IsFalse(new nint(0).Equals((object)new nint(-1)));
+            Assert.IsFalse(new nint(0).Equals((object)new nint(1)));
+            Assert.IsFalse(new nint(1).Equals((object)new nint(0)));
+            Assert.IsFalse(new nint(1).Equals((object)new nint(2)));
+            Assert.IsFalse(new nint(2).Equals((object)new nint(1)));
+            Assert.IsFalse(new nint(2).Equals((object)new nint(1)));
+
+            Assert.IsFalse(new nint(0).Equals((object)null));
+            Assert.IsFalse(new nint(0).Equals((object)""));
+            Assert.IsFalse(new nint(0).Equals((object)"test"));
         }
     }
 }
