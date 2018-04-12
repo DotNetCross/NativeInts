@@ -1,5 +1,6 @@
 # NativeInts
-Straightforward `nint` and `nuint` native integers, written in IL, probably second best to proper compiler support.
+Straightforward `nint` and `nuint` native integers, written in IL, 
+probably second best to proper compiler support.
 Fully functional.
 
 ## Comparing `IntPtr`/`UIntPtr` vs `nint`/`nuint`
@@ -111,4 +112,11 @@ The following methods have the same or forward to the equivalent `IntPtr`/`UIntP
 public override bool Equals(object obj)
 public override int GetHashCode()
 public override string ToString()
+```
+
+### Interface Methods
+The following interfaces have been implemented for the given type `nint` or `nuint`:
+```csharp
+IEquatable<T>
+IComparable<T>
 ```
