@@ -1223,3 +1223,1180 @@ EQS_FALSE:  ldc.i4.0
         ret
     } // end of method nint::ToString
 }
+
+
+// ============================================================================
+//
+// nuint
+//
+// Disassemble IntPtr in System for inspiration
+//
+// ============================================================================
+.class public sequential ansi sealed serializable beforefieldinit DotNetCross.NativeInts.nuint extends [System.Runtime]System.ValueType
+// implements System.Runtime.Serialization.ISerializable
+{
+    .field public native unsigned int Value // .custom instance void System.Security.SecurityCriticalAttribute::.ctor() = ( 01 00 00 00 )    
+    
+    .field public static initonly valuetype DotNetCross.NativeInts.nuint Zero
+
+    .method public hidebysig specialname rtspecialname instance void .ctor (native unsigned int 'value') cil managed 
+    {
+        ldarg.0 // this
+        ldarg.1 // value
+        stfld native unsigned int DotNetCross.NativeInts.nuint::Value
+        ret
+    }
+    .method public hidebysig specialname rtspecialname instance void .ctor (uint32 'value') cil managed 
+    {
+        ldarg.0 // this
+        ldarg.1 // value
+        conv.u
+        stfld native unsigned int DotNetCross.NativeInts.nuint::Value
+        ret
+    }
+
+    // TODO: Add uint64 ctor as IntPtr has...
+
+    //
+    // ECMA I.10.3 Operator overloading
+    //
+    // Conversions
+    //
+    // op_Implicit
+    // op_Explicit
+    .method public hidebysig specialname static valuetype DotNetCross.NativeInts.nuint op_Implicit (native unsigned int 'value') cil managed 
+    {
+        ldarg.0
+        newobj instance void DotNetCross.NativeInts.nuint::.ctor(native unsigned int)
+        ret
+    }
+    .method public hidebysig specialname static valuetype DotNetCross.NativeInts.nuint op_Implicit (uint32 'value') cil managed 
+    {
+        ldarg.0
+        newobj instance void DotNetCross.NativeInts.nuint::.ctor(uint32)
+        ret
+    }
+
+    .method public hidebysig specialname static valuetype DotNetCross.NativeInts.nuint op_Explicit (uint64 'value') cil managed 
+    {
+        ldarg.0
+        conv.u // Should we throw on overflow, if native unsigned int is 32-bit?
+        newobj instance void DotNetCross.NativeInts.nuint::.ctor(native unsigned int)
+        ret
+    }
+
+    .method public hidebysig specialname static native unsigned int op_Implicit (valuetype DotNetCross.NativeInts.nuint 'value') cil managed 
+    {
+        ldarga.s 'value'
+        ldfld native unsigned int DotNetCross.NativeInts.nuint::Value
+        ret
+    }
+    .method public hidebysig specialname static uint64 op_Implicit (valuetype DotNetCross.NativeInts.nuint 'value') cil managed 
+    {
+        ldarga.s 'value'
+        ldfld native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        ret
+    }
+    .method public hidebysig specialname static uint32 op_Explicit (valuetype DotNetCross.NativeInts.nuint 'value') cil managed 
+    {
+        ldarga.s 'value'
+        ldfld native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.i4 // Should we throw on overflow, if native unsigned int is 64-bit?
+        ret
+    }
+
+    //
+    // Unary
+    //
+    // op_Decrement Similar to -- (1)
+    // op_Increment Similar to ++ (1)
+    // op_UnaryNegation - (unary)
+    // op_UnaryPlus + (unary)
+    // op_LogicalNot !
+    // op_True Not defined (2)
+    // op_False Not defined (2)
+    // op_AddressOf & (unary)
+    // op_OnesComplement ~
+    // op_PointerDereference * (unary)
+    // (1) From a pure C++ point of view, the way one must write these functions for the CLI differs in
+    // one very important aspect. In C++, these methods must increment or decrement their operand
+    // directly, whereas, in CLI, they must not; instead, they simply return the value of their operand
+    // +/- 1, as appropriate, without modifying their operand. The operand must be incremented or
+    // decremented by the compiler that generates the code for the ++/-- operator, separate from the call
+    // to these methods.
+    // (2) The op_True and op_False operators do not exist in C++. They are provided to support tristate
+    // Boolean types, such as those used in database languages. 
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Increment(valuetype DotNetCross.NativeInts.nuint 'value') cil managed
+    {
+        .maxstack  3
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldc.i4.1
+        add
+        newobj     instance void DotNetCross.NativeInts.nuint::.ctor(native unsigned int)
+        ret
+    } // end of method nuint::op_Increment
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Decrement(valuetype DotNetCross.NativeInts.nuint 'value') cil managed
+    {
+        .maxstack  3
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldc.i4.1
+        sub
+        newobj     instance void DotNetCross.NativeInts.nuint::.ctor(native unsigned int)
+        ret
+    } // end of method nuint::op_Decrement
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_UnaryPlus(valuetype DotNetCross.NativeInts.nuint 'value') cil managed
+    {
+        .maxstack  1
+        ldarg.0
+        ret
+    } // end of method nuint::op_UnaryPlus
+
+    // NOTE: UnaryNegation not available for nuint by design
+    //.method public hidebysig specialname static 
+    //        valuetype DotNetCross.NativeInts.nuint 
+    //        op_UnaryNegation(valuetype DotNetCross.NativeInts.nuint 'value') cil managed
+    //{
+    //    .maxstack  1
+    //    ldarg.0
+    //    ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+    //    neg
+    //    ret
+    //} // end of method nuint::op_UnaryNegation
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_OnesComplement(valuetype DotNetCross.NativeInts.nuint 'value') cil managed
+    {
+        .maxstack  1
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        not
+        ret
+    } // end of method nuint::op_OnesComplement
+
+    // 
+    // Binary
+    // 
+    // op_Addition + (binary)
+    // op_Subtraction - (binary)
+    // op_Multiply * (binary)
+    // op_Division /
+    // op_Modulus %
+    // op_ExclusiveOr ^
+    // op_BitwiseAnd & (binary)
+    // op_BitwiseOr |
+    // op_LogicalAnd &&
+    // op_LogicalOr ||
+    // op_Assign Not defined (= is not the same)
+    // op_LeftShift <<
+    // op_RightShift >>
+    // op_SignedRightShift Not defined
+    // op_UnsignedRightShift Not defined
+    // op_Equality ==
+    // op_GreaterThan >
+    // op_LessThan <
+    // op_Inequality !=
+    // op_GreaterThanOrEqual >=
+    // op_LessThanOrEqual <=
+    // op_UnsignedRightShiftAssignment Not defined
+    // op_MemberSelection ->
+    // op_RightShiftAssignment >>=
+    // op_MultiplicationAssignment *=
+    // op_PointerToMemberSelection ->*
+    // op_SubtractionAssignment -=
+    // op_ExclusiveOrAssignment ^=
+    // op_LeftShiftAssignment <<=
+    // op_ModulusAssignment %=
+    // op_AdditionAssignment +=
+    // op_BitwiseAndAssignment &=
+    // op_BitwiseOrAssignment |=
+    // op_Comma ,
+    // op_DivisionAssignment /=
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Addition(valuetype DotNetCross.NativeInts.nuint l,
+                        valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        add
+        ret
+    } // end of method nuint::op_Addition
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Addition(valuetype DotNetCross.NativeInts.nuint l,
+                        uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        add
+        ret
+    } // end of method nuint::op_Addition
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Addition(uint32 l,
+                        valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        add
+        ret
+    } // end of method nuint::op_Addition
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Subtraction(valuetype DotNetCross.NativeInts.nuint l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        sub
+        ret
+    } // end of method nuint::op_Subtraction
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Subtraction(valuetype DotNetCross.NativeInts.nuint l,
+                            uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        sub
+        ret
+    } // end of method nuint::op_Subtraction
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Subtraction(uint32 l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        sub
+        ret
+    } // end of method nuint::op_Subtraction
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Multiply(valuetype DotNetCross.NativeInts.nuint l,
+                        valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        mul
+        ret
+    } // end of method nuint::op_Multiply
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Multiply(valuetype DotNetCross.NativeInts.nuint l,
+                        uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        mul
+        ret
+    } // end of method nuint::op_Multiply
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Division(valuetype DotNetCross.NativeInts.nuint l,
+                        valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        div
+        ret
+    } // end of method nuint::op_Division
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Division(valuetype DotNetCross.NativeInts.nuint l,
+                        uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        div
+        ret
+    } // end of method nuint::op_Division
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Modulus(valuetype DotNetCross.NativeInts.nuint l,
+                        valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        rem
+        ret
+    } // end of method nuint::op_Modulus
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_Modulus(valuetype DotNetCross.NativeInts.nuint l,
+                        uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        rem
+        ret
+    } // end of method nuint::op_Modulus
+
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_ExclusiveOr(valuetype DotNetCross.NativeInts.nuint l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        xor
+        ret
+    } // end of method nuint::op_ExclusiveOr
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_ExclusiveOr(valuetype DotNetCross.NativeInts.nuint l,
+                            uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        xor
+        ret
+    } // end of method nuint::op_ExclusiveOr
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_BitwiseAnd(valuetype DotNetCross.NativeInts.nuint l,
+                        valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        and
+        ret
+    } // end of method nuint::op_BitwiseAnd
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_BitwiseAnd(valuetype DotNetCross.NativeInts.nuint l,
+                        uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        and
+        ret
+    } // end of method nuint::op_BitwiseAnd
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_BitwiseOr(valuetype DotNetCross.NativeInts.nuint l,
+                        valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        or
+        ret
+    } // end of method nuint::op_BitwiseOr
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_BitwiseOr(valuetype DotNetCross.NativeInts.nuint l,
+                        uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        or
+        ret
+    } // end of method nuint::op_BitwiseOr
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_LeftShift(valuetype DotNetCross.NativeInts.nuint l,
+                         valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        shl
+        ret
+    } // end of method nuint::op_LeftShift
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_LeftShift(valuetype DotNetCross.NativeInts.nuint l,
+                         uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        shl
+        ret
+    } // end of method nuint::op_LeftShift
+        
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_RightShift(valuetype DotNetCross.NativeInts.nuint l,
+                          valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        shr
+        ret
+    } // end of method nuint::op_RightShift
+
+    .method public hidebysig specialname static 
+            valuetype DotNetCross.NativeInts.nuint 
+            op_RightShift(valuetype DotNetCross.NativeInts.nuint l,
+                          uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        shr
+        ret
+    } // end of method nuint::op_RightShift
+
+    .method public hidebysig specialname static 
+            bool  op_Equality(valuetype DotNetCross.NativeInts.nuint l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ceq
+        ret
+    } // end of method nuint::op_Equality
+
+    .method public hidebysig specialname static 
+            bool  op_Equality(valuetype DotNetCross.NativeInts.nuint l,
+                            uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        ceq
+        ret
+    } // end of method nuint::op_Equality
+
+    .method public hidebysig specialname static 
+            bool  op_Equality(uint32 l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        conv.u
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ceq
+        ret
+    } // end of method nuint::op_Equality
+
+    .method public hidebysig specialname static 
+            bool  op_Equality(valuetype DotNetCross.NativeInts.nuint l,
+                            uint64 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        ldarg.1
+        ceq
+        ret
+    } // end of method nuint::op_Equality
+
+    .method public hidebysig specialname static 
+            bool  op_Equality(uint64 l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        ceq
+        ret
+    } // end of method nuint::op_Equality
+
+    .method public hidebysig specialname static 
+            bool  op_Equality(valuetype DotNetCross.NativeInts.nuint l,
+                            native unsigned int r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ceq
+        ret
+    } // end of method nuint::op_Equality
+
+    .method public hidebysig specialname static 
+            bool  op_Equality(native unsigned int l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ceq
+        ret
+    } // end of method nuint::op_Equality
+
+    .method public hidebysig specialname static 
+            bool  op_Inequality(valuetype DotNetCross.NativeInts.nuint l,
+                                valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ceq
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_Inequality
+
+    .method public hidebysig specialname static 
+            bool  op_Inequality(valuetype DotNetCross.NativeInts.nuint l,
+                                uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        ceq
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_Inequality
+
+    .method public hidebysig specialname static 
+            bool  op_Inequality(uint32 l,
+                                valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        conv.u
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ceq
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_Inequality
+
+    .method public hidebysig specialname static 
+            bool  op_Inequality(valuetype DotNetCross.NativeInts.nuint l,
+                                uint64 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        ldarg.1
+        ceq
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_Inequality
+
+    .method public hidebysig specialname static 
+            bool  op_Inequality(uint64 l,
+                                valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        ceq
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_Inequality
+
+    .method public hidebysig specialname static 
+            bool  op_Inequality(valuetype DotNetCross.NativeInts.nuint l,
+                            native unsigned int r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ceq
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_Inequality
+
+    .method public hidebysig specialname static 
+            bool  op_Inequality(native unsigned int l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ceq
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_Inequality
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThan(valuetype DotNetCross.NativeInts.nuint l,
+                                valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        cgt
+        ret
+    } // end of method nuint::op_GreaterThan
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThan(valuetype DotNetCross.NativeInts.nuint l,
+                                uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        cgt
+        ret
+    } // end of method nuint::op_GreaterThan
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThan(uint32 l,
+                                valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        conv.u
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        cgt
+        ret
+    } // end of method nuint::op_GreaterThan
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThan(valuetype DotNetCross.NativeInts.nuint l,
+                                uint64 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        ldarg.1
+        cgt
+        ret
+    } // end of method nuint::op_GreaterThan
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThan(uint64 l,
+                                valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        cgt
+        ret
+    } // end of method nuint::op_GreaterThan
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThan(valuetype DotNetCross.NativeInts.nuint l,
+                                native unsigned int r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        cgt
+        ret
+    } // end of method nuint::op_GreaterThan
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThan(native unsigned int l,
+                                valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        cgt
+        ret
+    } // end of method nuint::op_GreaterThan
+
+    .method public hidebysig specialname static 
+            bool  op_LessThan(valuetype DotNetCross.NativeInts.nuint l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        clt
+        ret
+    } // end of method nuint::op_LessThan
+
+    .method public hidebysig specialname static 
+            bool  op_LessThan(valuetype DotNetCross.NativeInts.nuint l,
+                            uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        clt
+        ret
+    } // end of method nuint::op_LessThan
+
+    .method public hidebysig specialname static 
+            bool  op_LessThan(uint32 l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        conv.u
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        clt
+        ret
+    } // end of method nuint::op_LessThan
+
+    .method public hidebysig specialname static 
+            bool  op_LessThan(valuetype DotNetCross.NativeInts.nuint l,
+                            uint64 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        ldarg.1
+        clt
+        ret
+    } // end of method nuint::op_LessThan
+
+    .method public hidebysig specialname static 
+            bool  op_LessThan(uint64 l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        clt
+        ret
+    } // end of method nuint::op_LessThan
+
+    .method public hidebysig specialname static 
+            bool  op_LessThan(valuetype DotNetCross.NativeInts.nuint l,
+                            native unsigned int r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        clt
+        ret
+    } // end of method nuint::op_LessThan
+
+    .method public hidebysig specialname static 
+            bool  op_LessThan(native unsigned int l,
+                            valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        clt
+        ret
+    } // end of method nuint::op_LessThan
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThanOrEqual(valuetype DotNetCross.NativeInts.nuint l,
+                                        valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        clt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_GreaterThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThanOrEqual(valuetype DotNetCross.NativeInts.nuint l,
+                                        uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        clt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_GreaterThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThanOrEqual(uint32 l,
+                                        valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        conv.u
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        clt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_GreaterThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThanOrEqual(valuetype DotNetCross.NativeInts.nuint l,
+                                        uint64 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        ldarg.1
+        clt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_GreaterThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThanOrEqual(uint64 l,
+                                        valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        clt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_GreaterThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThanOrEqual(valuetype DotNetCross.NativeInts.nuint l,
+                                        native unsigned int r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        clt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_GreaterThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_GreaterThanOrEqual(native unsigned int l,
+                                        valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        clt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_GreaterThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_LessThanOrEqual(valuetype DotNetCross.NativeInts.nuint l,
+                                    valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        cgt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_LessThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_LessThanOrEqual(valuetype DotNetCross.NativeInts.nuint l,
+                                    uint32 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        conv.u
+        cgt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_LessThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_LessThanOrEqual(uint32 l,
+                                    valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        conv.u
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        cgt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_LessThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_LessThanOrEqual(valuetype DotNetCross.NativeInts.nuint l,
+                                    uint64 r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        ldarg.1
+        cgt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_LessThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_LessThanOrEqual(uint64 l,
+                                    valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        cgt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_LessThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_LessThanOrEqual(valuetype DotNetCross.NativeInts.nuint l,
+                                    native unsigned int r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        cgt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_LessThanOrEqual
+
+    .method public hidebysig specialname static 
+            bool  op_LessThanOrEqual(native unsigned int l,
+                                    valuetype DotNetCross.NativeInts.nuint r) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        cgt
+        ldc.i4.0
+        ceq
+        ret
+    } // end of method nuint::op_LessThanOrEqual
+
+    .method public hidebysig newslot virtual final 
+            instance bool  Equals(valuetype DotNetCross.NativeInts.nuint other) cil managed
+    {
+        .maxstack  2
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ceq
+        ret
+    } // end of method nuint::Equals
+
+    .method public hidebysig newslot virtual final 
+            instance int32  CompareTo(valuetype DotNetCross.NativeInts.nuint other) cil managed
+    {
+// uint64 impl
+// Code size       16 (0x10)
+//  .maxstack  8
+//  IL_0000:  ldarg.0
+//  IL_0001:  ldind.i8
+//  IL_0002:  ldarg.1
+//  IL_0003:  bge.s      IL_0007
+//  IL_0005:  ldc.i4.m1
+//  IL_0006:  ret
+//  IL_0007:  ldarg.0
+//  IL_0008:  ldind.i8
+//  IL_0009:  ldarg.1
+//  IL_000a:  ble.s      IL_000e
+//  IL_000c:  ldc.i4.1
+//  IL_000d:  ret
+//  IL_000e:  ldc.i4.0
+//  IL_000f:  ret
+    // TODO: Perhaps this can be optimized to not use "ldfld" or something
+    // Code size       16 (0x10)
+    .maxstack  8
+    IL_0000:  ldarg.0
+              ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+    IL_0002:  ldarg.1
+              ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+    IL_0003:  bge.s      IL_0007
+    IL_0005:  ldc.i4.m1
+    IL_0006:  ret
+    IL_0007:  ldarg.0
+              ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+    IL_0009:  ldarg.1
+              ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+    IL_000a:  ble.s      IL_000e
+    IL_000c:  ldc.i4.1
+    IL_000d:  ret
+    IL_000e:  ldc.i4.0
+    IL_000f:  ret
+    } // end of method nuint::CompareTo
+
+    .method public hidebysig virtual instance bool 
+            Equals(object obj) cil managed
+    {
+        .maxstack  2
+        ldarg.1
+        isinst     DotNetCross.NativeInts.nuint
+        brfalse.s  EQS_FALSE
+
+        ldarg.0
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldarg.1
+        unbox      DotNetCross.NativeInts.nuint
+        ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
+        ceq
+        ret
+
+EQS_FALSE:  ldc.i4.0
+        ret
+    } // end of method nuint::Equals
+
+    .method public hidebysig virtual instance int32 
+            GetHashCode() cil managed
+    {
+        // Copied from IntPtr implementation
+        .maxstack  1
+        ldarg.0
+        ldfld     native unsigned int DotNetCross.NativeInts.nuint::Value
+        conv.u8
+        conv.i4
+        ret    
+    } // end of method nuint::GetHashCode
+
+    .method public hidebysig virtual instance string 
+            ToString() cil managed
+    {
+        // Code size       12 (0xc)
+        .maxstack  8
+        ldarg.0
+        ldflda     native unsigned int DotNetCross.NativeInts.nuint::Value
+        call       instance string [System.Runtime]System.IntPtr::ToString()
+        ret
+    } // end of method nuint::ToString
+}
