@@ -366,7 +366,7 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsTrue(new nuint(0) == 0u);
             Assert.IsTrue(new nuint(1) == 1u);
             Assert.IsTrue(new nuint(uint.MaxValue) == uint.MaxValue);
-            Assert.AreEqual(true, (nuint)(ulong.MaxValue) == (unchecked((uint)ulong.MaxValue)));
+            Assert.AreEqual(sizeof(nuint) == sizeof(uint), (nuint)(ulong.MaxValue) == (unchecked((uint)ulong.MaxValue)));
             Assert.IsFalse(new nuint(0) == 1u);
             Assert.IsFalse(new nuint(1) == 0u);
             Assert.IsFalse(new nuint(1) == 2u);
@@ -376,7 +376,7 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsTrue(0u == new nuint(0));
             Assert.IsTrue(1u == new nuint(1));
             Assert.IsTrue(uint.MaxValue == new nuint(uint.MaxValue));
-            Assert.AreEqual(true, (unchecked((uint)ulong.MaxValue) == (nuint)(ulong.MaxValue)));
+            Assert.AreEqual(sizeof(nuint) == sizeof(uint), (unchecked((uint)ulong.MaxValue) == (nuint)(ulong.MaxValue)));
             Assert.IsFalse(0 == new nuint(1));
             Assert.IsFalse(1 == new nuint(0));
             Assert.IsFalse(1 == new nuint(2));
