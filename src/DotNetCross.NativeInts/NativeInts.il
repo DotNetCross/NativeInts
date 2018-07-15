@@ -2383,10 +2383,13 @@ EQS_FALSE:  ldc.i4.0
         // Copied from IntPtr implementation
         .maxstack  1
         ldarg.0
-        ldflda     native unsigned int DotNetCross.NativeInts.nuint::Value
+        ldflda     native uint DotNetCross.NativeInts.nuint::Value
         call      instance int32 [System.Runtime]System.UIntPtr::GetHashCode()
         //conv.u8
         //conv.i4
+//        stloc.0
+//        br.s       IL_000f
+//IL_000f:  ldloc.0
         ret    
     } // end of method nuint::GetHashCode
 

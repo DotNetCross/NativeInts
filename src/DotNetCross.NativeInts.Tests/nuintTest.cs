@@ -1190,8 +1190,13 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.AreEqual(3, new nuint(3).GetHashCode());
             Assert.AreEqual(4, new nuint(4).GetHashCode());
             Assert.AreEqual(5, new nuint(5).GetHashCode());
+            Assert.AreEqual(int.MaxValue, new nuint(uint.MaxValue / 2).GetHashCode());
+            Assert.AreEqual(int.MaxValue, new nuint(uint.MaxValue).GetHashCode());
+            Assert.AreEqual(int.MaxValue, ((UIntPtr)(uint.MaxValue / 2)).GetHashCode());
+            Assert.AreEqual(int.MaxValue, ((UIntPtr)uint.MaxValue).GetHashCode());
 
-            Assert.AreEqual(int.MaxValue, ((UIntPtr)ulong.MaxValue).GetHashCode());
+            // UIntPtr overflows if 32-bit
+            //Assert.AreEqual(int.MaxValue, ((UIntPtr)ulong.MaxValue).GetHashCode());
             Assert.AreEqual(int.MaxValue, ((nuint)ulong.MaxValue).GetHashCode());
             Assert.AreEqual(0, ((UIntPtr)ulong.MinValue).GetHashCode());
             Assert.AreEqual(0, ((nuint)ulong.MinValue).GetHashCode());
