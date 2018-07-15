@@ -882,14 +882,14 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsTrue(0L >= new nint(0));
             Assert.IsTrue(1L >= new nint(1));
             Assert.IsTrue((long)int.MaxValue >= new nint(int.MaxValue));
-            Assert.AreEqual(sizeof(long) != sizeof(IntPtr), long.MaxValue >= (nint)(long.MaxValue));
+            Assert.IsTrue(long.MaxValue >= (nint)(long.MaxValue));
 
             Assert.IsFalse(-2L >= new nint(-1));
             Assert.IsFalse(-1L >= new nint(0));
             Assert.IsFalse(0L >= new nint(1));
             Assert.IsFalse(1L >= new nint(2));
             Assert.IsFalse((long)(int.MaxValue - 1) >= new nint(int.MaxValue));
-            Assert.AreEqual(sizeof(long) != sizeof(IntPtr), (long.MaxValue - 1) >= new nint(int.MaxValue));
+            Assert.IsTrue((long.MaxValue - 1) >= new nint(int.MaxValue));
 
             Assert.IsTrue(-1L >= new nint(-2));
             Assert.IsTrue(0L >= new nint(-1));
@@ -912,9 +912,8 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsTrue(new nint(int.MaxValue) >= new IntPtr((long)int.MaxValue));
             if (sizeof(long) == sizeof(IntPtr))
             {
-                Assert.IsFalse((nint)(long.MaxValue) >= new IntPtr(long.MaxValue));
+                Assert.IsTrue((nint)(long.MaxValue) >= new IntPtr(long.MaxValue));
             }
-
             Assert.IsFalse(new nint(-2) >= new IntPtr(-1));
             Assert.IsFalse(new nint(-1) >= new IntPtr(0));
             Assert.IsFalse(new nint(0) >= new IntPtr(1));
@@ -944,14 +943,14 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsTrue(new IntPtr(0) >= new nint(0));
             Assert.IsTrue(new IntPtr(1) >= new nint(1));
             Assert.IsTrue((long)int.MaxValue >= new nint(int.MaxValue));
-            Assert.AreEqual(sizeof(long) != sizeof(IntPtr), long.MaxValue >= (nint)(long.MaxValue));
+            Assert.IsTrue(long.MaxValue >= (nint)(long.MaxValue));
 
             Assert.IsFalse(new IntPtr(-2) >= new nint(-1));
             Assert.IsFalse(new IntPtr(-1) >= new nint(0));
             Assert.IsFalse(new IntPtr(0) >= new nint(1));
             Assert.IsFalse(new IntPtr(1) >= new nint(2));
             Assert.IsFalse((long)(int.MaxValue - 1) >= new nint(int.MaxValue));
-            Assert.AreEqual(sizeof(long) != sizeof(IntPtr), (long.MaxValue - 1) >= new nint(int.MaxValue));
+            Assert.IsTrue((long.MaxValue - 1) >= new nint(int.MaxValue));
 
             Assert.IsTrue(new IntPtr(-1) >= new nint(-2));
             Assert.IsTrue(new IntPtr(0) >= new nint(-1));

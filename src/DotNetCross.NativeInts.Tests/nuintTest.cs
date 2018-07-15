@@ -613,7 +613,7 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsFalse(0UL > new nuint(1));
             Assert.IsFalse(1UL > new nuint(2));
             Assert.IsFalse((ulong)(uint.MaxValue - 1) > new nuint(uint.MaxValue));
-            Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), (ulong.MaxValue - 1) > new nuint(uint.MaxValue));
+            Assert.IsTrue((ulong.MaxValue - 1) > new nuint(uint.MaxValue));
 
             Assert.IsTrue(1UL > new nuint(0));
             Assert.IsTrue(2UL > new nuint(1));
@@ -621,20 +621,6 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsTrue(ulong.MaxValue > (nuint)(ulong.MaxValue - 1));
 
             Assert.IsFalse((ulong)uint.MaxValue > (nuint)(ulong.MaxValue));
-        }
-
-        [TestMethod]
-        public unsafe void operator_GreaterThan_UIntPtr_TEST()
-        {
-            //Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), ulong.MaxValue > (ulong)new UIntPtr(ulong.MaxValue));
-            nuint n = (nuint)(ulong.MaxValue);
-            bool b = ulong.MaxValue > n;
-            bool b2 = ulong.MaxValue > (ulong)n;
-            Trace.WriteLine(n.Value);
-            Trace.WriteLine(b);
-            Trace.WriteLine(b2);
-            Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), b);
-            Assert.AreEqual(sizeof(ulong) == sizeof(UIntPtr), (nuint)(ulong.MaxValue) > ulong.MaxValue);
         }
         [TestMethod]
         public unsafe void operator_GreaterThan_UIntPtr()
@@ -672,15 +658,13 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsFalse(new UIntPtr(0) > new nuint(0));
             Assert.IsFalse(new UIntPtr(1) > new nuint(1));
             Assert.IsFalse((ulong)uint.MaxValue > new nuint(uint.MaxValue));
-            //Assert.AreEqual(ulong.MaxValue, ((nuint)(ulong.MaxValue)).Value);
-            //Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), ulong.MaxValue > (ulong)new UIntPtr(ulong.MaxValue));
             Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), ulong.MaxValue > (nuint)(ulong.MaxValue));
-            Assert.AreEqual(sizeof(ulong) == sizeof(UIntPtr), (nuint)(ulong.MaxValue) > ulong.MaxValue);
+            Assert.IsFalse((nuint)(ulong.MaxValue) > ulong.MaxValue);
 
             Assert.IsFalse(new UIntPtr(0) > new nuint(1));
             Assert.IsFalse(new UIntPtr(1) > new nuint(2));
             Assert.IsFalse((ulong)(uint.MaxValue - 1) > new nuint(uint.MaxValue));
-            Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), (ulong.MaxValue - 1) > new nuint(uint.MaxValue));
+            Assert.IsTrue((ulong.MaxValue - 1) > new nuint(uint.MaxValue));
 
             Assert.IsTrue(new UIntPtr(1) > new nuint(0));
             Assert.IsTrue(new UIntPtr(2) > new nuint(1));
@@ -771,19 +755,18 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsTrue(0L >= new nuint(0));
             Assert.IsTrue(1L >= new nuint(1));
             Assert.IsTrue((ulong)uint.MaxValue >= new nuint(uint.MaxValue));
-            Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), ulong.MaxValue >= (nuint)(ulong.MaxValue));
+            Assert.IsTrue(ulong.MaxValue >= (nuint)(ulong.MaxValue));
 
             Assert.IsFalse(0L >= new nuint(1));
             Assert.IsFalse(1L >= new nuint(2));
             Assert.IsFalse((ulong)(uint.MaxValue - 1) >= new nuint(uint.MaxValue));
-            Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), (ulong.MaxValue - 1) >= new nuint(uint.MaxValue));
+            Assert.IsTrue((ulong.MaxValue - 1) >= new nuint(uint.MaxValue));
 
             Assert.IsTrue(1L >= new nuint(0));
             Assert.IsTrue(2L >= new nuint(1));
             Assert.IsTrue((ulong)uint.MaxValue >= new nuint(uint.MaxValue - 1));
             Assert.IsTrue(ulong.MaxValue >= (nuint)(ulong.MaxValue - 1));
 
-            Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), (ulong)uint.MaxValue >= (nuint)(ulong.MaxValue));
             Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), (ulong)uint.MaxValue >= (nuint)(ulong.MaxValue));
         }
         [TestMethod]
@@ -796,7 +779,7 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsTrue(new nuint(uint.MaxValue) >= new UIntPtr((ulong)uint.MaxValue));
             if (sizeof(ulong) == sizeof(UIntPtr))
             {
-                Assert.IsFalse((nuint)(ulong.MaxValue) >= new UIntPtr(ulong.MaxValue));
+                Assert.IsTrue((nuint)(ulong.MaxValue) >= new UIntPtr(ulong.MaxValue));
             }
 
             Assert.IsFalse(new nuint(0) >= new UIntPtr(1));
@@ -821,19 +804,18 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsTrue(new UIntPtr(0) >= new nuint(0));
             Assert.IsTrue(new UIntPtr(1) >= new nuint(1));
             Assert.IsTrue((ulong)uint.MaxValue >= new nuint(uint.MaxValue));
-            Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), ulong.MaxValue >= (nuint)(ulong.MaxValue));
+            Assert.IsTrue(ulong.MaxValue >= (nuint)(ulong.MaxValue));
 
             Assert.IsFalse(new UIntPtr(0) >= new nuint(1));
             Assert.IsFalse(new UIntPtr(1) >= new nuint(2));
             Assert.IsFalse((ulong)(uint.MaxValue - 1) >= new nuint(uint.MaxValue));
-            Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), (ulong.MaxValue - 1) >= new nuint(uint.MaxValue));
+            Assert.IsTrue((ulong.MaxValue - 1) >= new nuint(uint.MaxValue));
 
             Assert.IsTrue(new UIntPtr(1) >= new nuint(0));
             Assert.IsTrue(new UIntPtr(2) >= new nuint(1));
             Assert.IsTrue((ulong)uint.MaxValue >= new nuint(uint.MaxValue - 1));
             Assert.IsTrue(ulong.MaxValue >= (nuint)(ulong.MaxValue - 1));
 
-            Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), (ulong)uint.MaxValue >= (nuint)(ulong.MaxValue));
             Assert.AreEqual(sizeof(ulong) != sizeof(UIntPtr), (ulong)uint.MaxValue >= (nuint)(ulong.MaxValue));
         }
 
