@@ -141,9 +141,9 @@ namespace DotNetCross.NativeInts.TestsFramework
         [TestMethod]
         public void operator_OnesComplement()
         {
-            Assert.AreEqual(~new nuint(1), new nuint(unchecked((uint)-2)));
-            Assert.AreEqual(~new nuint(0), new nuint(unchecked((uint)-1)));
-            Assert.AreEqual(~new nuint(unchecked((uint)-1)), new nuint(0));
+            Assert.AreEqual(~new nuint(1), (nuint)(unchecked((ulong)-2)));
+            Assert.AreEqual(~new nuint(0), (nuint)(unchecked((ulong)-1)));
+            Assert.AreEqual(~(nuint)(unchecked((ulong)-1)), new nuint(0));
         }
 
         [TestMethod]
