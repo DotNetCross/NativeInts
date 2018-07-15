@@ -1417,9 +1417,14 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.AreEqual(4, new nint(4).GetHashCode());
             Assert.AreEqual(5, new nint(5).GetHashCode());
 
-            Assert.AreEqual(-1, ((IntPtr)long.MaxValue).GetHashCode());
+            Assert.AreEqual(int.MaxValue, ((IntPtr)int.MaxValue).GetHashCode());
+            Assert.AreEqual(int.MaxValue, ((nint)int.MaxValue).GetHashCode());
+            Assert.AreEqual(int.MinValue, ((IntPtr)int.MinValue).GetHashCode());
+            Assert.AreEqual(int.MinValue, ((nint)int.MinValue).GetHashCode());
+
+            //Assert.AreEqual(-1, ((IntPtr)long.MaxValue).GetHashCode());
             Assert.AreEqual(-1, ((nint)long.MaxValue).GetHashCode());
-            Assert.AreEqual(0, ((IntPtr)long.MinValue).GetHashCode());
+            //Assert.AreEqual(0, ((IntPtr)long.MinValue).GetHashCode());
             Assert.AreEqual(0, ((nint)long.MinValue).GetHashCode());
         }
     }

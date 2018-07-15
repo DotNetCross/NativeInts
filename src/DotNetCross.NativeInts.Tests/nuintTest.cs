@@ -560,9 +560,7 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsTrue(new nuint(2) > 1u);
             Assert.IsTrue((nuint)(uint.MaxValue) > uint.MaxValue - 1);
 
-            //Assert.IsTrue(ulong.MaxValue > (ulong)uint.MaxValue);
-            //Assert.IsTrue((ulong)((nuint)ulong.MaxValue).Value > (ulong)uint.MaxValue);
-            Assert.AreEqual((ulong)((nuint)ulong.MaxValue).Value, (ulong)((nuint)uint.MaxValue).Value);
+            Assert.IsTrue(ulong.MaxValue > (ulong)uint.MaxValue);
 
             Assert.AreEqual(sizeof(ulong) == sizeof(UIntPtr), ((nuint)ulong.MaxValue) > (nuint)uint.MaxValue);
 
