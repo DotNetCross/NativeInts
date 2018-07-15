@@ -1024,7 +1024,7 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsTrue(new nuint(0) <= 0L);
             Assert.IsTrue(new nuint(1) <= 1L);
             Assert.IsTrue(new nuint(uint.MaxValue) <= (ulong)uint.MaxValue);
-            Assert.AreEqual(sizeof(ulong) == sizeof(UIntPtr), (nuint)(ulong.MaxValue) <= ulong.MaxValue);
+            Assert.IsTrue((nuint)(ulong.MaxValue) <= ulong.MaxValue);
 
             Assert.IsTrue(new nuint(0) <= 1L);
             Assert.IsTrue(new nuint(1) <= 2L);
