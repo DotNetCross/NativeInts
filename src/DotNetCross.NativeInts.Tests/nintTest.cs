@@ -703,7 +703,7 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsFalse(0L > new nint(1));
             Assert.IsFalse(1L > new nint(2));
             Assert.IsFalse((long)(int.MaxValue - 1) > new nint(int.MaxValue));
-            Assert.AreEqual(sizeof(long) != sizeof(IntPtr), (long.MaxValue - 1) > new nint(int.MaxValue));
+            Assert.IsTrue(((long)int.MaxValue + 1L) > new nint(int.MaxValue));
 
             Assert.IsTrue(-1L > new nint(-2));
             Assert.IsTrue(0L > new nint(-1));
@@ -765,7 +765,7 @@ namespace DotNetCross.NativeInts.TestsFramework
             Assert.IsFalse(new IntPtr(0) > new nint(1));
             Assert.IsFalse(new IntPtr(1) > new nint(2));
             Assert.IsFalse((long)(int.MaxValue - 1) > new nint(int.MaxValue));
-            Assert.AreEqual(sizeof(long) != sizeof(IntPtr), (long.MaxValue - 1) > new nint(int.MaxValue));
+            Assert.IsTrue((int.MaxValue + 1L) > new nint(int.MaxValue));
 
             Assert.IsTrue(new IntPtr(-1) > new nint(-2));
             Assert.IsTrue(new IntPtr(0) > new nint(-1));

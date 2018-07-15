@@ -1929,7 +1929,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        cgt
+        cgt.un
         ret
     } // end of method nuint::op_GreaterThan
 
@@ -1942,7 +1942,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
         conv.u
-        cgt
+        cgt.un
         ret
     } // end of method nuint::op_GreaterThan
 
@@ -1955,7 +1955,7 @@ EQS_FALSE:  ldc.i4.0
         conv.u
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        cgt
+        cgt.un
         ret
     } // end of method nuint::op_GreaterThan
 
@@ -1968,7 +1968,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         conv.u8
         ldarg.1
-        cgt
+        cgt.un
         ret
     } // end of method nuint::op_GreaterThan
 
@@ -1981,7 +1981,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         conv.u8
-        cgt
+        cgt.un
         ret
     } // end of method nuint::op_GreaterThan
 
@@ -1993,7 +1993,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
-        cgt
+        cgt.un
         ret
     } // end of method nuint::op_GreaterThan
 
@@ -2005,7 +2005,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.0
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        cgt
+        cgt.un
         ret
     } // end of method nuint::op_GreaterThan
 
@@ -2018,7 +2018,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        clt
+        clt.un
         ret
     } // end of method nuint::op_LessThan
 
@@ -2031,7 +2031,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
         conv.u
-        clt
+        clt.un
         ret
     } // end of method nuint::op_LessThan
 
@@ -2044,7 +2044,7 @@ EQS_FALSE:  ldc.i4.0
         conv.u
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        clt
+        clt.un
         ret
     } // end of method nuint::op_LessThan
 
@@ -2057,7 +2057,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         conv.u8
         ldarg.1
-        clt
+        clt.un
         ret
     } // end of method nuint::op_LessThan
 
@@ -2070,7 +2070,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         conv.u8
-        clt
+        clt.un
         ret
     } // end of method nuint::op_LessThan
 
@@ -2082,7 +2082,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
-        clt
+        clt.un
         ret
     } // end of method nuint::op_LessThan
 
@@ -2094,7 +2094,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.0
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        clt
+        clt.un
         ret
     } // end of method nuint::op_LessThan
 
@@ -2107,7 +2107,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        clt
+        clt.un
         ldc.i4.0
         ceq
         ret
@@ -2122,7 +2122,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
         conv.u
-        clt
+        clt.un
         ldc.i4.0
         ceq
         ret
@@ -2137,7 +2137,7 @@ EQS_FALSE:  ldc.i4.0
         conv.u
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        clt
+        clt.un
         ldc.i4.0
         ceq
         ret
@@ -2152,7 +2152,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         conv.u8
         ldarg.1
-        clt
+        clt.un
         ldc.i4.0
         ceq
         ret
@@ -2167,7 +2167,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         conv.u8
-        clt
+        clt.un
         ldc.i4.0
         ceq
         ret
@@ -2181,7 +2181,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
-        clt
+        clt.un
         ldc.i4.0
         ceq
         ret
@@ -2195,7 +2195,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.0
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        clt
+        clt.un
         ldc.i4.0
         ceq
         ret
@@ -2210,7 +2210,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        cgt
+        cgt.un
         ldc.i4.0
         ceq
         ret
@@ -2225,7 +2225,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
         conv.u
-        cgt
+        cgt.un
         ldc.i4.0
         ceq
         ret
@@ -2240,7 +2240,7 @@ EQS_FALSE:  ldc.i4.0
         conv.u
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        cgt
+        cgt.un
         ldc.i4.0
         ceq
         ret
@@ -2255,7 +2255,7 @@ EQS_FALSE:  ldc.i4.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         conv.u8
         ldarg.1
-        cgt
+        cgt.un
         ldc.i4.0
         ceq
         ret
@@ -2270,7 +2270,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         conv.u8
-        cgt
+        cgt.un
         ldc.i4.0
         ceq
         ret
@@ -2284,7 +2284,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.0
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
         ldarg.1
-        cgt
+        cgt.un
         ldc.i4.0
         ceq
         ret
@@ -2298,7 +2298,7 @@ EQS_FALSE:  ldc.i4.0
         ldarg.0
         ldarg.1
         ldfld      native unsigned int DotNetCross.NativeInts.nuint::Value
-        cgt
+        cgt.un
         ldc.i4.0
         ceq
         ret
@@ -2383,11 +2383,29 @@ EQS_FALSE:  ldc.i4.0
         // Copied from IntPtr implementation
         .maxstack  1
         ldarg.0
-        ldfld     native unsigned int DotNetCross.NativeInts.nuint::Value
-        conv.u8
-        conv.i4
+        ldflda     native unsigned int DotNetCross.NativeInts.nuint::Value
+        call      instance int32 [System.Runtime]System.UIntPtr::GetHashCode()
+        //conv.u8
+        //conv.i4
         ret    
     } // end of method nuint::GetHashCode
+
+    //    .method public hidebysig virtual instance int32 
+    //        GetHashCode() cil managed
+    //{
+    //  // Code size       17 (0x11)
+    //  .maxstack  1
+    //  .locals init (int32 V_0)
+    //  IL_0000:  nop
+    //  IL_0001:  ldarg.0
+    //  IL_0002:  ldflda     native uint DotNetCross.NativeInts.nuint::Value
+    //  IL_0007:  call       instance int32 [System.Runtime]System.UIntPtr::GetHashCode()
+    //  IL_000c:  stloc.0
+    //  IL_000d:  br.s       IL_000f
+    //  IL_000f:  ldloc.0
+    //  IL_0010:  ret
+    //} // end of method nuint::GetHashCode
+
 
     .method public hidebysig virtual instance string 
             ToString() cil managed
@@ -2396,7 +2414,7 @@ EQS_FALSE:  ldc.i4.0
         .maxstack  8
         ldarg.0
         ldflda     native unsigned int DotNetCross.NativeInts.nuint::Value
-        call       instance string [System.Runtime]System.IntPtr::ToString()
+        call       instance string [System.Runtime]System.UIntPtr::ToString()
         ret
     } // end of method nuint::ToString
 }
