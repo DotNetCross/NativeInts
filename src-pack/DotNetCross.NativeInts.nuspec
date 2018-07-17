@@ -9,8 +9,7 @@
     <projectUrl>https://github.com/DotNetCross/NativeInts</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Straightforward `nint` and `nuint` native integers, written in IL,
-      probably second best to proper compiler support.
+      Straightforward `nint` and `nuint` native integers, written in IL, probably second best to proper compiler support.
     </description>
     <releaseNotes>Initial release.</releaseNotes>
     <copyright>© nietras. All rights reserved.</copyright>
