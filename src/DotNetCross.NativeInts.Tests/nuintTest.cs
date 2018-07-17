@@ -48,6 +48,41 @@ namespace DotNetCross.NativeInts.TestsFramework
         }
 
         [TestMethod]
+        public void ctor_ulong_0()
+        {
+            nuint ni = new nuint(0UL);
+            Assert.AreEqual(ni.Value, new UIntPtr(0UL));
+        }
+        [TestMethod]
+        public void ctor_ulong_1()
+        {
+            nuint ni = new nuint(1UL);
+            Assert.AreEqual(ni.Value, new UIntPtr(1UL));
+        }
+
+        [TestMethod]
+        public unsafe void ctor_ulong_MaxValue()
+        {
+            if (sizeof(nuint) == sizeof(ulong))
+            {
+                nuint ni = new nuint(ulong.MaxValue);
+                Assert.AreEqual(ni.Value, new UIntPtr(ulong.MaxValue));
+            }
+            else
+            {
+                try
+                {
+                    new nuint(ulong.MaxValue);
+                    Assert.Fail("ctor for 64-bit checks overflow");
+                }
+                catch (OverflowException e)
+                {
+                    Assert.IsNotNull(e);
+                }
+            }
+        }
+
+        [TestMethod]
         public void implicit_conversion_from_UIntPtr()
         {
             nuint ni = new UIntPtr(42);

@@ -79,7 +79,14 @@
         ret
     }
 
-    // TODO: Add int64 ctor as IntPtr has...
+    .method public hidebysig specialname rtspecialname instance void .ctor (int64 'value') cil managed 
+    {
+        ldarg.0 // this
+        ldarg.1 // value
+        conv.ovf.i
+        stfld native int DotNetCross.NativeInts.nint::Value
+        ret
+    }
 
     //
     // ECMA I.10.3 Operator overloading
@@ -1255,7 +1262,14 @@ EQS_FALSE:  ldc.i4.0
         ret
     }
 
-    // TODO: Add uint64 ctor as IntPtr has...
+    .method public hidebysig specialname rtspecialname instance void .ctor (uint64 'value') cil managed 
+    {
+        ldarg.0 // this
+        ldarg.1 // value
+        conv.ovf.u.un
+        stfld native unsigned int DotNetCross.NativeInts.nuint::Value
+        ret
+    }
 
     //
     // ECMA I.10.3 Operator overloading

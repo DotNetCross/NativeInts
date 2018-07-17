@@ -48,6 +48,41 @@ namespace DotNetCross.NativeInts.TestsFramework
         }
 
         [TestMethod]
+        public void ctor_long_0()
+        {
+            nint ni = new nint(0L);
+            Assert.AreEqual(ni.Value, new IntPtr(0L));
+        }
+        [TestMethod]
+        public void ctor_long_1()
+        {
+            nint ni = new nint(1L);
+            Assert.AreEqual(ni.Value, new IntPtr(1L));
+        }
+
+        [TestMethod]
+        public unsafe void ctor_long_MaxValue()
+        {
+            if (sizeof(nint) == sizeof(long))
+            {
+                nint ni = new nint(long.MaxValue);
+                Assert.AreEqual(ni.Value, new IntPtr(long.MaxValue));
+            }
+            else
+            {
+                try
+                {
+                    new nint(long.MaxValue);
+                    Assert.Fail("ctor for 64-bit checks overflow");
+                }
+                catch (OverflowException e)
+                {
+                    Assert.IsNotNull(e);
+                }
+            }
+        }
+
+        [TestMethod]
         public void implicit_conversion_from_IntPtr()
         {
             nint ni = new IntPtr(42);
