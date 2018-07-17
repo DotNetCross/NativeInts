@@ -120,3 +120,194 @@ The following interfaces have been implemented for the given type `nint` or `nui
 IEquatable<T>
 IComparable<T>
 ```
+
+### `nint` API
+```csharp
+public struct nint : IEquatable<nint>, IComparable<nint>
+{
+    public static readonly nint Zero;
+    public IntPtr Value;
+
+    public nint(IntPtr value);
+    public nint(int value);
+    public nint(long value);
+
+    public int CompareTo(nint other);
+    public override bool Equals(object obj);
+    public bool Equals(nint other);
+    public override int GetHashCode();
+    public override string ToString();
+
+    public static nint operator +(nint value);
+    public static nint operator +(nint l, nint r);
+    public static nint operator +(nint l, int r);
+    public static nint operator +(int l, nint r);
+    public static nint operator -(nint value);
+    public static nint operator -(nint l, int r);
+    public static nint operator -(nint l, nint r);
+    public static nint operator -(int l, nint r);
+    public static nint operator ~(nint value);
+    public static nint operator ++(nint value);
+    public static nint operator --(nint value);
+    public static nint operator *(nint l, nint r);
+    public static nint operator *(nint l, int r);
+    public static nint operator /(nint l, int r);
+    public static nint operator /(nint l, nint r);
+    public static nint operator %(nint l, nint r);
+    public static nint operator %(nint l, int r);
+    public static nint operator &(nint l, int r);
+    public static nint operator &(nint l, nint r);
+    public static nint operator |(nint l, nint r);
+    public static nint operator |(nint l, int r);
+    public static nint operator ^(nint l, nint r);
+    public static nint operator ^(nint l, int r);
+    public static nint operator <<(nint l, nint r);
+    public static nint operator <<(nint l, int r);
+    public static nint operator >>(nint l, nint r);
+    public static nint operator >>(nint l, int r);
+    public static bool operator ==(IntPtr l, nint r);
+    public static bool operator ==(nint l, IntPtr r);
+    public static bool operator ==(nint l, long r);
+    public static bool operator ==(long l, nint r);
+    public static bool operator ==(nint l, int r);
+    public static bool operator ==(nint l, nint r);
+    public static bool operator ==(int l, nint r);
+    public static bool operator !=(IntPtr l, nint r);
+    public static bool operator !=(long l, nint r);
+    public static bool operator !=(nint l, IntPtr r);
+    public static bool operator !=(nint l, long r);
+    public static bool operator !=(int l, nint r);
+    public static bool operator !=(nint l, int r);
+    public static bool operator !=(nint l, nint r);
+    public static bool operator <(IntPtr l, nint r);
+    public static bool operator <(nint l, IntPtr r);
+    public static bool operator <(long l, nint r);
+    public static bool operator <(nint l, long r);
+    public static bool operator <(int l, nint r);
+    public static bool operator <(nint l, nint r);
+    public static bool operator <(nint l, int r);
+    public static bool operator >(IntPtr l, nint r);
+    public static bool operator >(long l, nint r);
+    public static bool operator >(nint l, long r);
+    public static bool operator >(int l, nint r);
+    public static bool operator >(nint l, int r);
+    public static bool operator >(nint l, nint r);
+    public static bool operator >(nint l, IntPtr r);
+    public static bool operator <=(nint l, int r);
+    public static bool operator <=(IntPtr l, nint r);
+    public static bool operator <=(nint l, IntPtr r);
+    public static bool operator <=(long l, nint r);
+    public static bool operator <=(nint l, long r);
+    public static bool operator <=(int l, nint r);
+    public static bool operator <=(nint l, nint r);
+    public static bool operator >=(nint l, nint r);
+    public static bool operator >=(nint l, IntPtr r);
+    public static bool operator >=(long l, nint r);
+    public static bool operator >=(nint l, long r);
+    public static bool operator >=(int l, nint r);
+    public static bool operator >=(nint l, int r);
+    public static bool operator >=(IntPtr l, nint r);
+
+    public static implicit operator long(nint value);
+    public static implicit operator IntPtr(nint value);
+    public static implicit operator nint(int value);
+    public static implicit operator nint(IntPtr value);
+    public static explicit operator nint(long value);
+    public static explicit operator int(nint value);
+}
+```
+
+### `nuint` API
+```csharp
+public struct nuint : IEquatable<nuint>, IComparable<nuint>
+{
+    public static readonly nuint Zero;
+    public UIntPtr Value;
+
+    public nuint(UIntPtr value);
+    public nuint(uint value);
+    public nuint(ulong value);
+
+    public int CompareTo(nuint other);
+    public override bool Equals(object obj);
+    public bool Equals(nuint other);
+    public override int GetHashCode();
+    public override string ToString();
+
+    public static nuint operator +(nuint value);
+    public static nuint operator +(nuint l, nuint r);
+    public static nuint operator +(nuint l, uint r);
+    public static nuint operator +(uint l, nuint r);
+    public static nuint operator -(nuint l, uint r);
+    public static nuint operator -(nuint l, nuint r);
+    public static nuint operator -(uint l, nuint r);
+    public static nuint operator ~(nuint value);
+    public static nuint operator ++(nuint value);
+    public static nuint operator --(nuint value);
+    public static nuint operator *(nuint l, nuint r);
+    public static nuint operator *(nuint l, uint r);
+    public static nuint operator /(nuint l, nuint r);
+    public static nuint operator /(nuint l, uint r);
+    public static nuint operator %(nuint l, nuint r);
+    public static nuint operator %(nuint l, uint r);
+    public static nuint operator &(nuint l, uint r);
+    public static nuint operator &(nuint l, nuint r);
+    public static nuint operator |(nuint l, uint r);
+    public static nuint operator |(nuint l, nuint r);
+    public static nuint operator ^(nuint l, uint r);
+    public static nuint operator ^(nuint l, nuint r);
+    public static nuint operator <<(nuint l, nuint r);
+    public static nuint operator <<(nuint l, uint r);
+    public static nuint operator >>(nuint l, nuint r);
+    public static nuint operator >>(nuint l, uint r);
+    public static bool operator ==(nuint l, UIntPtr r);
+    public static bool operator ==(UIntPtr l, nuint r);
+    public static bool operator ==(nuint l, ulong r);
+    public static bool operator ==(ulong l, nuint r);
+    public static bool operator ==(nuint l, uint r);
+    public static bool operator ==(nuint l, nuint r);
+    public static bool operator ==(uint l, nuint r);
+    public static bool operator !=(UIntPtr l, nuint r);
+    public static bool operator !=(ulong l, nuint r);
+    public static bool operator !=(nuint l, UIntPtr r);
+    public static bool operator !=(nuint l, ulong r);
+    public static bool operator !=(uint l, nuint r);
+    public static bool operator !=(nuint l, uint r);
+    public static bool operator !=(nuint l, nuint r);
+    public static bool operator <(UIntPtr l, nuint r);
+    public static bool operator <(nuint l, UIntPtr r);
+    public static bool operator <(ulong l, nuint r);
+    public static bool operator <(nuint l, ulong r);
+    public static bool operator <(uint l, nuint r);
+    public static bool operator <(nuint l, nuint r);
+    public static bool operator <(nuint l, uint r);
+    public static bool operator >(UIntPtr l, nuint r);
+    public static bool operator >(ulong l, nuint r);
+    public static bool operator >(nuint l, ulong r);
+    public static bool operator >(uint l, nuint r);
+    public static bool operator >(nuint l, uint r);
+    public static bool operator >(nuint l, nuint r);
+    public static bool operator >(nuint l, UIntPtr r);
+    public static bool operator <=(nuint l, uint r);
+    public static bool operator <=(UIntPtr l, nuint r);
+    public static bool operator <=(nuint l, UIntPtr r);
+    public static bool operator <=(ulong l, nuint r);
+    public static bool operator <=(nuint l, ulong r);
+    public static bool operator <=(uint l, nuint r);
+    public static bool operator <=(nuint l, nuint r);
+    public static bool operator >=(nuint l, nuint r);
+    public static bool operator >=(nuint l, UIntPtr r);
+    public static bool operator >=(ulong l, nuint r);
+    public static bool operator >=(nuint l, ulong r);
+    public static bool operator >=(uint l, nuint r);
+    public static bool operator >=(nuint l, uint r);
+    public static bool operator >=(UIntPtr l, nuint r);
+
+    public static implicit operator ulong(nuint value);
+    public static implicit operator UIntPtr(nuint value);
+    public static implicit operator nuint(uint value);
+    public static implicit operator nuint(UIntPtr value);
+    public static explicit operator nuint(ulong value);
+    public static explicit operator uint(nuint value);
+}
+```
