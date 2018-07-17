@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>DotNetCross.NativeInts</id>
-    <version>0.1.0-alpha01</version>
+    <version>0.1.0-alpha02</version>
     <authors>nietras</authors>
     <owners>nietras</owners>
     <licenseUrl>https://github.com/DotNetCross/NativeInts/blob/master/LICENSE</licenseUrl>

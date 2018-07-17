@@ -57,6 +57,8 @@
 //
 // ============================================================================
 .class public sequential ansi sealed serializable beforefieldinit DotNetCross.NativeInts.nint extends [System.Runtime]System.ValueType
+       implements class [System.Runtime]System.IEquatable`1<valuetype DotNetCross.NativeInts.nint>,
+                  class [System.Runtime]System.IComparable`1<valuetype DotNetCross.NativeInts.nint>
 // implements System.Runtime.Serialization.ISerializable
 {
     .field public native int Value // .custom instance void System.Security.SecurityCriticalAttribute::.ctor() = ( 01 00 00 00 )    
@@ -1240,6 +1242,8 @@ EQS_FALSE:  ldc.i4.0
 //
 // ============================================================================
 .class public sequential ansi sealed serializable beforefieldinit DotNetCross.NativeInts.nuint extends [System.Runtime]System.ValueType
+       implements class [System.Runtime]System.IEquatable`1<valuetype DotNetCross.NativeInts.nuint>,
+                  class [System.Runtime]System.IComparable`1<valuetype DotNetCross.NativeInts.nuint>
 // implements System.Runtime.Serialization.ISerializable
 {
     .field public native unsigned int Value // .custom instance void System.Security.SecurityCriticalAttribute::.ctor() = ( 01 00 00 00 )    

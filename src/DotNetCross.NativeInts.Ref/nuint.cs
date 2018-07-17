@@ -2,7 +2,7 @@
 
 namespace DotNetCross.NativeInts
 {
-    public struct nuint
+    public struct nuint : IEquatable<nuint>, IComparable<nuint>
     {
         public UIntPtr Value;
 
@@ -398,6 +398,14 @@ namespace DotNetCross.NativeInts
         // <<= cannot be overloaded directly in C#
 
         // >>= cannot be overloaded directly in C#
+
+        public bool Equals(nuint other) => this == other;
+
+        public int CompareTo(nuint other)
+        {
+            return Is32Bit ? ((uint)this.Value).CompareTo((uint)other.Value)
+                           : ((ulong)this.Value).CompareTo((ulong)other.Value);
+        }
 
         public override bool Equals(object obj)
         {
