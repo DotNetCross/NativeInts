@@ -12,14 +12,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{18128D4D-3
 		ilasm.bat = ilasm.bat
 		ildasm.bat = ildasm.bat
 		LICENSE = LICENSE
+		pack.ps1 = pack.ps1
 		README.md = README.md
 		restore.ps1 = restore.ps1
 		test.ps1 = test.ps1
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts.Ref", "src\DotNetCross.NativeInts.Ref\DotNetCross.NativeInts.Ref.csproj", "{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCross.NativeInts.Ref", "src\DotNetCross.NativeInts.Ref\DotNetCross.NativeInts.Ref.csproj", "{7DB8DB1D-C894-4C23-9379-5DCA9D9BCF27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCross.NativeInts.Tests", "src\DotNetCross.NativeInts.Tests\DotNetCross.NativeInts.Tests.csproj", "{DC21D6BA-DA0E-4C4A-9BE0-AB8075EEA68D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src-pack", "src-pack", "{909A5D54-EEDA-4925-A7DE-1B839EFC0FDD}"
+	ProjectSection(SolutionItems) = preProject
+		src-pack\DotNetCross.NativeInts.nuspec = src-pack\DotNetCross.NativeInts.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,5 +76,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6327F85B-1D9F-4872-B2A7-874C51043233}
 	EndGlobalSection
 EndGlobal

@@ -12,6 +12,7 @@
 
 # Build results
 build/
+/src-pack/DotNetCross.NativeInts.dll
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

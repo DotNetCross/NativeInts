@@ -12,4 +12,5 @@ If (!(Test-Path $targetNugetExe))
    "Downloading nuget to: " + $targetNugetExe
    Invoke-WebRequest $sourceNugetExe -OutFile $targetNugetExe
 }
-iex ($targetNugetExe + " pack .\build\Libs_AnyCPU_Release\DotNetCross.NativeInts.nuspec")
+xcopy /Y .\build\Libs_AnyCPU_Release\DotNetCross.NativeInts.dll .\src-pack\
+iex ($targetNugetExe + " pack .\src-pack\DotNetCross.NativeInts.nuspec")
