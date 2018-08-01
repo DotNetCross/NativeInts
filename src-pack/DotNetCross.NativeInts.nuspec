@@ -1,17 +1,15 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <package>
   <metadata>
     <id>DotNetCross.NativeInts</id>
-    <version>0.1.0-alpha02</version>
+    <version>0.1.0</version>
     <authors>nietras</authors>
     <owners>nietras</owners>
     <licenseUrl>https://github.com/DotNetCross/NativeInts/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/DotNetCross/NativeInts</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>
-      Straightforward `nint` and `nuint` native integers, written in IL, probably second best to proper compiler support.
-    </description>
-    <releaseNotes>Initial release.</releaseNotes>
+    <description>Straightforward `nint` and `nuint` native integers, written in IL, probably second best to proper compiler support.</description>
+    <releaseNotes>Fix nuspec for netstandard2.0.</releaseNotes>
     <copyright>© nietras. All rights reserved.</copyright>
     <tags>native integers 32-bit 64-bit nint nuint msil dotnet-standard performance</tags>
     <dependencies>
@@ -28,11 +26,13 @@
       <group targetFramework="portable-net451+win81+wpa81" />
       <group targetFramework=".NETFramework4.5" />
       <group targetFramework=".NETFramework4.6" />
+      <group targetFramework=".NETFramework4.7" />
       <!--The listing of dependencies for netstandard causes issues for ordinary non-core projects, 
           which is why other frameworks are listed, so these have no dependencies.-->
       <group targetFramework=".NETStandard1.0">
         <dependency id="System.Runtime" version="4.0.*" />
       </group>
+      <group targetFramework=".NETStandard2.0" />
       <group targetFramework="Windows8.0" />
       <group targetFramework="WindowsPhone8.0" />
       <group targetFramework="WindowsPhoneApp8.1" />
