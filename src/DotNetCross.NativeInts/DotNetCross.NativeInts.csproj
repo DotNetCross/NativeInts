@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DotNetCross.NativeInts</RootNamespace>
     <AssemblyName>DotNetCross.NativeInts</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <Import Project="../Relative_Output_Path.props" />
   <Import Project="../Library_Project_Output.props" />
